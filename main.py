@@ -26,6 +26,9 @@ def init_db():
         CREATE TABLE IF NOT EXISTS sessions(token TEXT PRIMARY KEY, user_id INTEGER NOT NULL, expires TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS resources(id INTEGER PRIMARY KEY, title TEXT NOT NULL, branch TEXT, semester TEXT, subject TEXT, kind TEXT, filename TEXT NOT NULL, uploaded_at TEXT DEFAULT CURRENT_TIMESTAMP);
         CREATE TABLE IF NOT EXISTS questions(id INTEGER PRIMARY KEY, question TEXT, options TEXT, answer TEXT, explanation TEXT, branch TEXT, semester TEXT, subject TEXT);
+        CREATE TABLE IF NOT EXISTS quiz_attempts(id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, score INTEGER NOT NULL, total INTEGER NOT NULL, attempted_at TEXT DEFAULT CURRENT_TIMESTAMP);
+        CREATE TABLE IF NOT EXISTS quiz_attempt_items(id INTEGER PRIMARY KEY, attempt_id INTEGER NOT NULL, question_id INTEGER NOT NULL, is_correct INTEGER NOT NULL);
+        CREATE TABLE IF NOT EXISTS resource_progress(user_id INTEGER NOT NULL, resource_id INTEGER NOT NULL, completed_at TEXT DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(user_id,resource_id));
         """)
         count = c.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
         if count == 0:
@@ -151,7 +154,7 @@ def quiz(branch: str="", semester: str="", subject: str=""):
 class QuizSubmit(BaseModel):
     answers: dict
 @app.post("/api/quiz/submit")
-def submit_quiz(data: QuizSubmit):
+def submit_quiz(data: QuizSubmit, user=Depends(current_user)):
     ids=[int(x) for x in data.answers.keys()]
     if not ids: return {"score":0,"total":0,"details":[]}
     marks=0; details=[]
@@ -162,9 +165,34 @@ def submit_quiz(data: QuizSubmit):
                 correct=data.answers[str(qid)]==q["answer"]
                 marks += int(correct)
                 details.append({"question":q["question"],"correct":q["answer"],"explanation":q["explanation"],"is_correct":correct})
-    return {"score":marks,"total":len(details),"details":details}
+    with db() as c:
+        cur=c.execute("INSERT INTO quiz_attempts(user_id,score,total) VALUES(?,?,?)",(user["id"],marks,len(details)))
+        attempt_id=cur.lastrowid
+        for qid in ids:
+            q=c.execute("SELECT answer FROM questions WHERE id=?",(qid,)).fetchone()
+            if q:
+                c.execute("INSERT INTO quiz_attempt_items(attempt_id,question_id,is_correct) VALUES(?,?,?)",(attempt_id,qid,int(data.answers[str(qid)]==q["answer"])))
+    return {"score":marks,"total":len(details),"details":details,"attempt_id":attempt_id}
 
-@app.post("/api/ask")
+@app.get("/api/progress")
+def progress(user=Depends(current_user)):
+    with db() as c:
+        attempts=c.execute("SELECT COUNT(*) n, COALESCE(SUM(score),0) score, COALESCE(SUM(total),0) total FROM quiz_attempts WHERE user_id=?",(user["id"],)).fetchone()
+        recent=c.execute("SELECT score,total,attempted_at FROM quiz_attempts WHERE user_id=? ORDER BY id DESC LIMIT 10",(user["id"],)).fetchall()
+        completed=c.execute("SELECT COUNT(*) FROM resource_progress WHERE user_id=?",(user["id"],)).fetchone()[0]
+        resources=c.execute("SELECT COUNT(*) FROM resources").fetchone()[0]
+    accuracy=round((attempts["score"]/attempts["total"])*100) if attempts["total"] else 0
+    return {"quiz_attempts":attempts["n"],"correct_answers":attempts["score"],"questions_attempted":attempts["total"],"accuracy":accuracy,"resources_completed":completed,"resources_available":resources,"recent":[dict(x) for x in recent]}
+
+@app.post("/api/resources/{rid}/complete")
+def mark_resource_complete(rid:int,user=Depends(current_user)):
+    with db() as c:
+        exists=c.execute("SELECT id FROM resources WHERE id=?",(rid,)).fetchone()
+        if not exists: raise HTTPException(404,"Resource not found")
+        c.execute("INSERT OR IGNORE INTO resource_progress(user_id,resource_id) VALUES(?,?)",(user["id"],rid))
+    return {"message":"Resource marked as completed"}
+
+@app.get("/api/ask")
 def ask(data: Ask, user=Depends(current_user)):
     q=data.question.strip()
     if not q: raise HTTPException(400,"Please enter a question")
