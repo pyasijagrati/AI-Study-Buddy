@@ -86,7 +86,7 @@ def register(data: Register):
     if len(data.password) < 8: raise HTTPException(400, "Password must be at least 8 characters")
     with db() as c:
         try:
-            c.execute("INSERT INTO users(name,email,password) VALUES(?,?,?)", (data.name.strip(), data.email.lower(), password_hash(data.password)))
+            role = "admin" if os.getenv("ADMIN_EMAIL", "").lower() == data.email.lower() and os.getenv("ADMIN_EMAIL") else "student"\n            c.execute("INSERT INTO users(name,email,password,role) VALUES(?,?,?,?)", (data.name.strip(), data.email.lower(), password_hash(data.password), role))
         except sqlite3.IntegrityError:
             raise HTTPException(409, "This email is already registered")
     return {"message":"Account created. Please log in."}
