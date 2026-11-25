@@ -235,14 +235,12 @@ def admin_students(user=Depends(current_user)):
     with db() as c:
         rows = c.execute("""
             SELECT u.id,u.name,u.email,u.created_at,
-                   COUNT(DISTINCT qa.id) AS quiz_attempts,
-                   COALESCE(SUM(qa.score),0) AS correct_answers,
-                   COALESCE(SUM(qa.total),0) AS questions_attempted,
-                   COUNT(DISTINCT rp.resource_id) AS resources_completed
+                   (SELECT COUNT(*) FROM quiz_attempts qa WHERE qa.user_id=u.id) AS quiz_attempts,
+                   (SELECT COALESCE(SUM(qa.score),0) FROM quiz_attempts qa WHERE qa.user_id=u.id) AS correct_answers,
+                   (SELECT COALESCE(SUM(qa.total),0) FROM quiz_attempts qa WHERE qa.user_id=u.id) AS questions_attempted,
+                   (SELECT COUNT(*) FROM resource_progress rp WHERE rp.user_id=u.id) AS resources_completed
             FROM users u
-            LEFT JOIN quiz_attempts qa ON qa.user_id=u.id
-            LEFT JOIN resource_progress rp ON rp.user_id=u.id
             WHERE u.role='student'
-            GROUP BY u.id ORDER BY u.created_at DESC
+            ORDER BY u.created_at DESC
         """).fetchall()
     return [dict(r) for r in rows]
