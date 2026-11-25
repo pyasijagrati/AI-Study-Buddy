@@ -1,7 +1,7 @@
 import os, sqlite3, hashlib, secrets, pathlib, re
 from datetime import datetime, timedelta
 from typing import Optional
-from fastapi import FastAPI, HTTPException, Depends, UploadFile, File, Header
+from fastapi import FastAPI, HTTPException, Depends, UploadFile, File, Header, Form
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, EmailStr
@@ -100,6 +100,10 @@ def login(data: Login):
     with db() as c:
         user = c.execute("SELECT * FROM users WHERE email=?", (data.email.lower(),)).fetchone()
         if not user or not verify(data.password, user["password"]): raise HTTPException(401, "Invalid email or password")
+        admin_email = os.getenv("ADMIN_EMAIL", "").strip().lower()
+        if admin_email and user["email"].lower() == admin_email and user["role"] != "admin":
+            c.execute("UPDATE users SET role='admin' WHERE id=?", (user["id"],))
+            user = c.execute("SELECT * FROM users WHERE id=?", (user["id"],)).fetchone()
         token = secrets.token_urlsafe(32)
         c.execute("INSERT INTO sessions(token,user_id,expires) VALUES(?,?,?)", (token,user["id"],(datetime.utcnow()+timedelta(days=7)).isoformat()))
     return {"token":token,"name":user["name"],"role":user["role"]}
@@ -124,7 +128,7 @@ def resources(branch: str="", semester: str="", subject: str=""):
     return [dict(x) for x in rows]
 
 @app.post("/api/resources")
-async def upload_resource(title: str, branch: str="", semester: str="", subject: str="", kind: str="Notes", file: UploadFile=File(...), user=Depends(current_user)):
+async def upload_resource(title: str=Form(...), branch: str=Form(""), semester: str=Form(""), subject: str=Form(""), kind: str=Form("Notes"), file: UploadFile=File(...), user=Depends(current_user)):
     if user["role"] != "admin": raise HTTPException(403,"Admin access required")
     ext=pathlib.Path(file.filename or "").suffix.lower()
     if ext not in [".pdf",".txt",".doc",".docx"]: raise HTTPException(400,"Only PDF, TXT, DOC and DOCX files are allowed")
@@ -224,3 +228,21 @@ def stats(user=Depends(current_user)):
     if user["role"]!="admin": raise HTTPException(403,"Admin access required")
     with db() as c:
         return {"students":c.execute("SELECT COUNT(*) FROM users WHERE role='student'").fetchone()[0],"resources":c.execute("SELECT COUNT(*) FROM resources").fetchone()[0],"questions":c.execute("SELECT COUNT(*) FROM questions").fetchone()[0]}
+
+@app.get("/api/admin/students")
+def admin_students(user=Depends(current_user)):
+    if user["role"] != "admin": raise HTTPException(403, "Admin access required")
+    with db() as c:
+        rows = c.execute("""
+            SELECT u.id,u.name,u.email,u.created_at,
+                   COUNT(DISTINCT qa.id) AS quiz_attempts,
+                   COALESCE(SUM(qa.score),0) AS correct_answers,
+                   COALESCE(SUM(qa.total),0) AS questions_attempted,
+                   COUNT(DISTINCT rp.resource_id) AS resources_completed
+            FROM users u
+            LEFT JOIN quiz_attempts qa ON qa.user_id=u.id
+            LEFT JOIN resource_progress rp ON rp.user_id=u.id
+            WHERE u.role='student'
+            GROUP BY u.id ORDER BY u.created_at DESC
+        """).fetchall()
+    return [dict(r) for r in rows]
