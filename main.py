@@ -192,7 +192,7 @@ def mark_resource_complete(rid:int,user=Depends(current_user)):
         c.execute("INSERT OR IGNORE INTO resource_progress(user_id,resource_id) VALUES(?,?)",(user["id"],rid))
     return {"message":"Resource marked as completed"}
 
-@app.get("/api/ask")
+@app.post("/api/ask")
 def ask(data: Ask, user=Depends(current_user)):
     q=data.question.strip()
     if not q: raise HTTPException(400,"Please enter a question")
@@ -213,8 +213,8 @@ def ask(data: Ask, user=Depends(current_user)):
             req=urllib.request.Request("https://api.openai.com/v1/chat/completions",data=json.dumps(payload).encode(),headers={"Authorization":"Bearer "+api_key,"Content-Type":"application/json"})
             with urllib.request.urlopen(req,timeout=35) as res: answer=json.loads(res.read())["choices"][0]["message"]["content"]
             return {"answer":answer,"mode":"AI"}
-        except Exception:
-            pass
+        except Exception as exc:
+            raise HTTPException(502, "AI service error: "+str(exc)[:240])
     if snippets:
         return {"answer":"I found these related lines in the uploaded text resources:\n\n"+"\n".join("• "+s for s in snippets[:5])+"\n\nFor a detailed AI-generated explanation, an AI API key needs to be configured by the site administrator.","mode":"study-material"}
     return {"answer":"I can help with this topic. Please add your branch, semester and subject, and upload relevant notes/PDFs so I can ground the answer in your study material. For full AI-generated explanations, the administrator needs to configure an AI API key.","mode":"basic"}
