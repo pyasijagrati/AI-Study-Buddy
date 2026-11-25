@@ -1,0 +1,197 @@
+import os, sqlite3, hashlib, secrets, pathlib, re
+from datetime import datetime, timedelta
+from typing import Optional
+from fastapi import FastAPI, HTTPException, Depends, UploadFile, File, Header
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, EmailStr
+
+BASE = pathlib.Path(__file__).parent
+DB = BASE / "studybuddy.db"
+UPLOADS = BASE / "uploads"
+UPLOADS.mkdir(exist_ok=True)
+
+app = FastAPI(title="AI Study Buddy", version="1.0.0")
+app.mount("/static", StaticFiles(directory=BASE / "static"), name="static")
+
+def db():
+    con = sqlite3.connect(DB)
+    con.row_factory = sqlite3.Row
+    return con
+
+def init_db():
+    with db() as c:
+        c.executescript("""
+        CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT UNIQUE NOT NULL, password TEXT NOT NULL, role TEXT DEFAULT 'student', created_at TEXT DEFAULT CURRENT_TIMESTAMP);
+        CREATE TABLE IF NOT EXISTS sessions(token TEXT PRIMARY KEY, user_id INTEGER NOT NULL, expires TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS resources(id INTEGER PRIMARY KEY, title TEXT NOT NULL, branch TEXT, semester TEXT, subject TEXT, kind TEXT, filename TEXT NOT NULL, uploaded_at TEXT DEFAULT CURRENT_TIMESTAMP);
+        CREATE TABLE IF NOT EXISTS questions(id INTEGER PRIMARY KEY, question TEXT, options TEXT, answer TEXT, explanation TEXT, branch TEXT, semester TEXT, subject TEXT);
+        """)
+        count = c.execute("SELECT COUNT(*) FROM questions").fetchone()[0]
+        if count == 0:
+            sample = [
+                ("What does CPU stand for?","Central Processing Unit|Computer Personal Unit|Central Program Utility|Control Processing User","Central Processing Unit","CPU is the main processor of a computer."),
+                ("Which data structure uses FIFO?","Stack|Queue|Tree|Graph","Queue","Queue follows First In, First Out."),
+                ("Which language is commonly used for AI/ML?","HTML|Python|CSS|SQL","Python","Python has widely used ML libraries such as scikit-learn and PyTorch."),
+                ("What is the time complexity of binary search?","O(n)|O(n²)|O(log n)|O(1)","O(log n)","Binary search halves the search space at each step."),
+                ("Which SQL command retrieves data?","GET|OPEN|SELECT|FETCHALL","SELECT","SELECT is used to query rows from a database.")
+            ]
+            c.executemany("INSERT INTO questions(question,options,answer,explanation) VALUES(?,?,?,?)", sample)
+init_db()
+
+class Register(BaseModel):
+    name: str
+    email: EmailStr
+    password: str
+class Login(BaseModel):
+    email: EmailStr
+    password: str
+class Ask(BaseModel):
+    question: str
+    branch: Optional[str] = ""
+    semester: Optional[str] = ""
+    subject: Optional[str] = ""
+
+def password_hash(p: str, salt: Optional[str] = None):
+    salt = salt or secrets.token_hex(16)
+    digest = hashlib.pbkdf2_hmac("sha256", p.encode(), bytes.fromhex(salt), 180000).hex()
+    return salt + "$" + digest
+
+def verify(p, stored):
+    try:
+        salt, digest = stored.split("$", 1)
+        return secrets.compare_digest(password_hash(p, salt), stored)
+    except Exception:
+        return False
+
+def current_user(authorization: Optional[str] = Header(default=None)):
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(401, "Please log in")
+    token = authorization[7:]
+    with db() as c:
+        row = c.execute("SELECT u.* FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.token=? AND s.expires>?", (token, datetime.utcnow().isoformat())).fetchone()
+    if not row: raise HTTPException(401, "Session expired. Please log in again.")
+    return dict(row)
+
+@app.get("/")
+def home():
+    return FileResponse(BASE / "static" / "index.html")
+
+@app.get("/api/health")
+def health():
+    return {"status":"ok","app":"AI Study Buddy"}
+
+@app.post("/api/register")
+def register(data: Register):
+    if len(data.password) < 8: raise HTTPException(400, "Password must be at least 8 characters")
+    with db() as c:
+        try:
+            c.execute("INSERT INTO users(name,email,password) VALUES(?,?,?)", (data.name.strip(), data.email.lower(), password_hash(data.password)))
+        except sqlite3.IntegrityError:
+            raise HTTPException(409, "This email is already registered")
+    return {"message":"Account created. Please log in."}
+
+@app.post("/api/login")
+def login(data: Login):
+    with db() as c:
+        user = c.execute("SELECT * FROM users WHERE email=?", (data.email.lower(),)).fetchone()
+        if not user or not verify(data.password, user["password"]): raise HTTPException(401, "Invalid email or password")
+        token = secrets.token_urlsafe(32)
+        c.execute("INSERT INTO sessions(token,user_id,expires) VALUES(?,?,?)", (token,user["id"],(datetime.utcnow()+timedelta(days=7)).isoformat()))
+    return {"token":token,"name":user["name"],"role":user["role"]}
+
+@app.get("/api/me")
+def me(user=Depends(current_user)):
+    return {"name":user["name"],"email":user["email"],"role":user["role"]}
+
+@app.post("/api/logout")
+def logout(authorization: Optional[str] = Header(default=None)):
+    if authorization and authorization.startswith("Bearer "):
+        with db() as c: c.execute("DELETE FROM sessions WHERE token=?", (authorization[7:],))
+    return {"message":"Logged out"}
+
+@app.get("/api/resources")
+def resources(branch: str="", semester: str="", subject: str=""):
+    sql = "SELECT id,title,branch,semester,subject,kind,filename,uploaded_at FROM resources WHERE 1=1"
+    args=[]
+    for col,val in [("branch",branch),("semester",semester),("subject",subject)]:
+        if val: sql += f" AND {col}=?"; args.append(val)
+    with db() as c: rows=c.execute(sql+" ORDER BY id DESC",args).fetchall()
+    return [dict(x) for x in rows]
+
+@app.post("/api/resources")
+async def upload_resource(title: str, branch: str="", semester: str="", subject: str="", kind: str="Notes", file: UploadFile=File(...), user=Depends(current_user)):
+    if user["role"] != "admin": raise HTTPException(403,"Admin access required")
+    ext=pathlib.Path(file.filename or "").suffix.lower()
+    if ext not in [".pdf",".txt",".doc",".docx"]: raise HTTPException(400,"Only PDF, TXT, DOC and DOCX files are allowed")
+    safe_name=secrets.token_hex(8)+ext
+    target=UPLOADS/safe_name
+    content=await file.read()
+    if len(content)>15*1024*1024: raise HTTPException(413,"File must be smaller than 15 MB")
+    target.write_bytes(content)
+    with db() as c:
+        cur=c.execute("INSERT INTO resources(title,branch,semester,subject,kind,filename) VALUES(?,?,?,?,?,?)",(title,branch,semester,subject,kind,safe_name))
+        rid=cur.lastrowid
+    return {"id":rid,"message":"Resource uploaded"}
+
+@app.get("/api/resources/{rid}/download")
+def download_resource(rid: int):
+    with db() as c: row=c.execute("SELECT * FROM resources WHERE id=?",(rid,)).fetchone()
+    if not row: raise HTTPException(404,"Resource not found")
+    path=UPLOADS/row["filename"]
+    if not path.exists(): raise HTTPException(404,"File is unavailable")
+    return FileResponse(path, filename=path.name)
+
+@app.get("/api/quiz")
+def quiz(branch: str="", semester: str="", subject: str=""):
+    with db() as c: rows=c.execute("SELECT id,question,options,explanation FROM questions ORDER BY RANDOM() LIMIT 5").fetchall()
+    return [{"id":r["id"],"question":r["question"],"options":r["options"].split("|")} for r in rows]
+
+class QuizSubmit(BaseModel):
+    answers: dict
+@app.post("/api/quiz/submit")
+def submit_quiz(data: QuizSubmit):
+    ids=[int(x) for x in data.answers.keys()]
+    if not ids: return {"score":0,"total":0,"details":[]}
+    marks=0; details=[]
+    with db() as c:
+        for qid in ids:
+            q=c.execute("SELECT question,answer,explanation FROM questions WHERE id=?",(qid,)).fetchone()
+            if q:
+                correct=data.answers[str(qid)]==q["answer"]
+                marks += int(correct)
+                details.append({"question":q["question"],"correct":q["answer"],"explanation":q["explanation"],"is_correct":correct})
+    return {"score":marks,"total":len(details),"details":details}
+
+@app.post("/api/ask")
+def ask(data: Ask, user=Depends(current_user)):
+    q=data.question.strip()
+    if not q: raise HTTPException(400,"Please enter a question")
+    key_terms=[w for w in re.findall(r"[a-zA-Z0-9]{3,}",q.lower()) if w not in {"what","which","when","where","explain","about","with","from","this","that"}]
+    snippets=[]
+    for p in UPLOADS.glob("*.txt"):
+        try:
+            text=p.read_text(errors="ignore")
+            for para in text.splitlines():
+                if para.strip() and any(k in para.lower() for k in key_terms): snippets.append(para.strip()[:700])
+        except Exception: pass
+    api_key=os.getenv("OPENAI_API_KEY")
+    if api_key:
+        try:
+            import urllib.request, json
+            context="\n".join(snippets[:6])
+            payload={"model":os.getenv("OPENAI_MODEL","gpt-4o-mini"),"messages":[{"role":"system","content":"You are AI Study Buddy, a friendly tutor for RGPV engineering students. Explain clearly in simple language with examples. If useful, answer in Hinglish. Use supplied study context when relevant. Do not invent official syllabus facts."},{"role":"user","content":f"Branch: {data.branch}; Semester: {data.semester}; Subject: {data.subject}\nStudy context: {context}\nQuestion: {q}"}],"temperature":0.4}
+            req=urllib.request.Request("https://api.openai.com/v1/chat/completions",data=json.dumps(payload).encode(),headers={"Authorization":"Bearer "+api_key,"Content-Type":"application/json"})
+            with urllib.request.urlopen(req,timeout=35) as res: answer=json.loads(res.read())["choices"][0]["message"]["content"]
+            return {"answer":answer,"mode":"AI"}
+        except Exception:
+            pass
+    if snippets:
+        return {"answer":"I found these related lines in the uploaded text resources:\n\n"+"\n".join("• "+s for s in snippets[:5])+"\n\nFor a detailed AI-generated explanation, an AI API key needs to be configured by the site administrator.","mode":"study-material"}
+    return {"answer":"I can help with this topic. Please add your branch, semester and subject, and upload relevant notes/PDFs so I can ground the answer in your study material. For full AI-generated explanations, the administrator needs to configure an AI API key.","mode":"basic"}
+
+@app.get("/api/admin/stats")
+def stats(user=Depends(current_user)):
+    if user["role"]!="admin": raise HTTPException(403,"Admin access required")
+    with db() as c:
+        return {"students":c.execute("SELECT COUNT(*) FROM users WHERE role='student'").fetchone()[0],"resources":c.execute("SELECT COUNT(*) FROM resources").fetchone()[0],"questions":c.execute("SELECT COUNT(*) FROM questions").fetchone()[0]}
