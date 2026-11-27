@@ -296,3 +296,8 @@ def academic_search(q: str = "", branch: str = "AIML", semester: int = 6):
                     matches.append({"subject_code": subject.get("code"), "subject": subject.get("name"), "unit": unit.get("unit"), "unit_title": unit.get("title"), **question})
     return {"count": len(matches), "questions": matches[:100], "label": catalog.get("question_label", "Practice questions")}
 
+
+
+# Authenticated AI learning tools
+from ai_features import build_router
+app.include_router(build_router(db, current_user))
