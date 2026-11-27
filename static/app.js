@@ -86,7 +86,7 @@ function renderResourceLibrary(){
    }else html+='<p class="notice">Unit-wise notes and important questions for this subject are being added after syllabus verification.</p>';
    html+='</div>';
   });
- }else html+='<p class="notice">Subject-wise in-app content for this branch and semester is not populated yet. The external directories below may have notes, unit-wise questions and subject PDFs.</p>';
+ }else html+='<p class="notice">Subject-wise in-app content for this branch and semester is not populated yet. Browse the external subject index to choose from 569 RGPV subject entries, then use the semester and branch directory links below for notes, important questions and papers.</p><p><a class="feature-link" href="https://campusprep.in/rgpv/subjects/" target="_blank" rel="noopener noreferrer">Browse all 569 RGPV subjects ↗</a></p>';
  html+='</section>';
  const pyqs=(resourceCatalog.pyq_links||[]).filter(x=>x.branch===branch&&x.semester===sem&&(!code||x.subject_code===code));
  html+='<section class="panel-card" style="margin-top:14px"><h3>3. Previous-year question papers</h3><p class="notice">Third-party archives are not official RGPV records. Verify subject code, scheme and exam session before relying on a paper.</p>';
