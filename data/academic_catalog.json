@@ -214,8 +214,177 @@
           "code": "AL602",
           "name": "Computer Networks",
           "category": "Core",
-          "syllabus_status": "Scheme-confirmed subject; detailed unit syllabus must be imported from the matching official AL602 syllabus document before publishing unit-wise content.",
-          "units": []
+          "syllabus_status": "Unit-wise topics sourced from the official RGPV AIML VI semester syllabus.",
+          "units": [
+            {
+              "unit": "I",
+              "title": "Computer Networks and Layered Architecture",
+              "topics": [
+                "Network definitions, goals, components, architecture, classifications and types",
+                "Protocol hierarchy, design issues, interfaces and services",
+                "Connection-oriented and connectionless services; service primitives",
+                "OSI reference model: layers, principles and comparison with TCP/IP",
+                "Physical layer: media, bandwidth, data rate and modulation"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "Define a computer network.",
+                  "answer": "A computer network is a collection of interconnected devices that communicate and share data, resources and services through communication links and agreed protocols.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate OSI and TCP/IP models.",
+                  "answer": "OSI is a 7-layer reference model: Physical, Data Link, Network, Transport, Session, Presentation and Application. TCP/IP is the practical Internet protocol suite, commonly represented with 4 layers: Link, Internet, Transport and Application. OSI is a conceptual reference; TCP/IP is widely implemented.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the OSI reference model with a neat diagram.",
+                  "answer": "The OSI model divides communication into seven layers. Each layer provides services to the layer above and uses services from the layer below. The sender encapsulates data while moving downward; the receiver decapsulates it while moving upward.",
+                  "diagram": "flowchart TB\\nA[Application] --> B[Presentation]\\nB --> C[Session]\\nC --> D[Transport]\\nD --> E[Network]\\nE --> F[Data Link]\\nF --> G[Physical]",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "II",
+              "title": "Data Link Layer and Protocols",
+              "topics": [
+                "Data link layer need and services",
+                "Framing, flow control and error control",
+                "Elementary and sliding-window protocols",
+                "Stop-and-wait/1-bit, Go-Back-N and Selective Repeat",
+                "Hybrid ARQ",
+                "Finite-state machine and Petri-net protocol verification",
+                "ARP, RARP and GARP"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is framing?",
+                  "answer": "Framing is the data-link layer process of dividing a continuous bit stream into identifiable units called frames so that the receiver can detect the beginning and end of each data unit.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate Go-Back-N and Selective Repeat ARQ.",
+                  "answer": "Go-Back-N retransmits the erroneous or lost frame and all subsequent outstanding frames. Selective Repeat retransmits only the specific lost or damaged frames. Selective Repeat is more bandwidth-efficient but requires more buffering and receiver complexity.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the sliding window protocol.",
+                  "answer": "Sliding window is a flow-control and reliability technique. The sender can transmit multiple frames before receiving acknowledgements, up to the window size. As acknowledgements arrive, the window moves forward, allowing new frames to be sent. Sequence numbers identify frames and support retransmission.",
+                  "diagram": "flowchart LR\\nA[Sender window: frames 0,1,2] --> B[Transmit frames]\\nB --> C[Receiver sends ACK]\\nC --> D[Window slides forward]\\nD --> E[Send next frames]",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "III",
+              "title": "MAC Sublayer",
+              "topics": [
+                "MAC addressing and Binary Exponential Back-off",
+                "ALOHA and Slotted ALOHA",
+                "CSMA, CSMA/CD and CSMA/CA",
+                "Collision-free protocols: Basic Bit Map, BRAP, Binary Countdown and MLMA",
+                "Limited contention: Adaptive Tree Walk",
+                "Performance metrics and IEEE 802 standards"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is CSMA/CD?",
+                  "answer": "Carrier Sense Multiple Access with Collision Detection is a medium access method in which a device listens before transmitting and detects collisions while transmitting. On collision, it stops and retries after a back-off time.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate Pure ALOHA and Slotted ALOHA.",
+                  "answer": "Pure ALOHA allows transmission at any time and has a vulnerable period of two frame times. Slotted ALOHA divides time into slots and permits transmission only at slot boundaries, reducing the vulnerable period to one frame time and improving maximum throughput.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain CSMA/CD with a flow diagram.",
+                  "answer": "A station first senses the channel. If busy, it waits. If idle, it transmits and monitors the medium. If a collision is detected, it sends a jam signal, stops transmission, waits for a random back-off interval and tries again.",
+                  "diagram": "flowchart TD\\nA([Start]) --> B[Sense channel]\\nB --> C{Channel idle?}\\nC -->|No| B\\nC -->|Yes| D[Transmit and monitor]\\nD --> E{Collision?}\\nE -->|No| F([Success])\\nE -->|Yes| G[Jam signal and back-off]\\nG --> B",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "IV",
+              "title": "Network Layer",
+              "topics": [
+                "Network layer need, services and design issues",
+                "Least-cost routing, Dijkstra and Bellman-Ford algorithms",
+                "Hierarchical, broadcast and multicast routing",
+                "IP addresses, header format and packet forwarding",
+                "Fragmentation and reassembly",
+                "ICMP",
+                "IPv4 and IPv6 comparison"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is an IP address?",
+                  "answer": "An IP address is a logical numerical address assigned to a device or network interface so that it can be identified and reached across an IP network.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate IPv4 and IPv6.",
+                  "answer": "IPv4 uses 32-bit addresses written in dotted decimal form, while IPv6 uses 128-bit addresses written in hexadecimal groups. IPv6 provides a much larger address space, a simplified base header and improved support for modern network configuration.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain Dijkstra's shortest path routing algorithm.",
+                  "answer": "Dijkstra's algorithm finds shortest paths from one source node in a graph with non-negative edge weights. Initialize the source distance to zero and all others to infinity. Repeatedly select the unvisited node with the smallest tentative distance, relax its outgoing edges, mark it visited and continue until all reachable nodes are processed.",
+                  "diagram": "flowchart TD\\nA([Start]) --> B[Set source distance 0; others infinity]\\nB --> C[Choose unvisited node with minimum distance]\\nC --> D[Update distances of neighbours]\\nD --> E[Mark node visited]\\nE --> F{All reachable nodes visited?}\\nF -->|No| C\\nF -->|Yes| G([Shortest paths ready])",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "V",
+              "title": "Transport and Application Layers",
+              "topics": [
+                "Transport layer design issues",
+                "UDP header and checksum; unicast/multicast real-time traffic",
+                "TCP connection management, reliable transfer, flow control and congestion control",
+                "TCP header and timer management",
+                "WWW and HTTP, FTP, SSH",
+                "Email: SMTP, MIME and IMAP",
+                "DNS and SNMP"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is the difference between TCP and UDP?",
+                  "answer": "TCP is connection-oriented and provides reliable, ordered delivery using acknowledgements and retransmission. UDP is connectionless, has lower overhead and does not guarantee delivery or ordering.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the TCP three-way handshake.",
+                  "answer": "TCP establishes a connection using three messages: the client sends SYN, the server replies with SYN-ACK, and the client sends ACK. After this exchange, both sides can begin data transfer.",
+                  "diagram": "flowchart LR\\nA[Client] -->|SYN| B[Server]\\nB -->|SYN-ACK| A\\nA -->|ACK| B",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the functions of the application layer and its common protocols.",
+                  "answer": "The application layer provides network services directly to user applications. HTTP supports web communication, FTP transfers files, SMTP sends email, IMAP accesses and synchronizes email, DNS maps domain names to IP addresses, SSH provides secure remote login and SNMP monitors network devices.",
+                  "diagram": "flowchart TB\\nA[Application Layer] --> B[HTTP: Web]\\nA --> C[FTP: File transfer]\\nA --> D[SMTP / IMAP: Email]\\nA --> E[DNS: Name resolution]\\nA --> F[SSH: Secure login]\\nA --> G[SNMP: Monitoring]",
+                  "type": "practice"
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "AL603",
@@ -317,5 +486,43 @@
     "rule": "Never label generated questions as PYQs. Add a paper only after its original PDF is obtained and its branch, semester, subject code, session and year are verified.",
     "archive_url": "https://rgpvquestionpapers.in/all-papers"
   },
-  "question_label": "Practice question (AI Study Buddy study aid; not claimed as an actual past paper)"
+  "question_label": "Practice question (AI Study Buddy study aid; not claimed as an actual past paper)",
+  "pyq_links": [
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL601",
+      "subject": "Theory of Computation",
+      "label": "Browse available papers (May 2023, May 2024, Dec 2024, Jun 2025 listings)",
+      "url": "https://www.rgpvonline.com/btech-aiml-question-papers.html",
+      "source_type": "third_party_index"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL602",
+      "subject": "Computer Networks",
+      "label": "Browse available papers (May 2023, May 2024, Dec 2024, Jun 2025 listings)",
+      "url": "https://www.rgpvonline.com/btech-aiml-question-papers.html",
+      "source_type": "third_party_index"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL601",
+      "subject": "Theory of Computation",
+      "label": "Browse paper archive",
+      "url": "https://paperwala.org/rgpv/btech/cse-aiml/al-601-theory-of-computation",
+      "source_type": "third_party_archive"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL602",
+      "subject": "Computer Networks",
+      "label": "Browse paper archive",
+      "url": "https://paperwala.org/rgpv/btech/cse-aiml/al-602-computer-networks",
+      "source_type": "third_party_archive"
+    }
+  ]
 }
