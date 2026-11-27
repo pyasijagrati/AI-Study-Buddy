@@ -1,12 +1,145 @@
 {
   "catalog_version": "1.0",
-  "coverage_note": "Starter verified catalogue. This is not yet a complete all-branch/all-semester library. Expand only from matching RGPV scheme PDFs and authentic paper scans.",
+  "coverage_note": "Branch and semester selectors cover the listed B.Tech streams. Only semester entries with a source and populated subjects contain verified starter content; all other branch/semester combinations are explicitly marked as pending verification.",
   "branches": [
+    {
+      "code": "CSE",
+      "name": "Computer Science & Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
     {
       "code": "AIML",
       "name": "Artificial Intelligence & Machine Learning",
       "semesters": [
-        6
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "AIDS",
+      "name": "Artificial Intelligence & Data Science",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "IT",
+      "name": "Information Technology",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "ECE",
+      "name": "Electronics & Communication Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "IOT",
+      "name": "Computer Science & Engineering (Internet of Things)",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "CSBS",
+      "name": "Computer Science & Business Systems",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "ME",
+      "name": "Mechanical Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "CE",
+      "name": "Civil Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "EE",
+      "name": "Electrical Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
       ]
     }
   ],
@@ -25,6 +158,41 @@
       "type": "paper_archive",
       "title": "RGPV Question Papers index (third-party archive; verify paper code/session)",
       "url": "https://rgpvquestionpapers.in/all-papers"
+    },
+    {
+      "type": "official_scheme",
+      "title": "RGPV B.Tech AIDS IV Semester Scheme",
+      "url": "https://www.rgpv.ac.in/CDN/PubContent/Scheme/BTech_AIDS_IV_Sem_Scheme210222024842.pdf"
+    },
+    {
+      "type": "official_syllabus",
+      "title": "RGPV AIDS V Semester syllabus",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FFinal_AIDS-Syllabus+V+semester280423020207.pdf"
+    },
+    {
+      "type": "official_scheme",
+      "title": "RGPV B.Tech IoT IV Semester Scheme",
+      "url": "https://www.rgpv.ac.in/CDN/PubContent/Scheme/BTech_IOT_IV_sem_Scheme210222025604.pdf"
+    },
+    {
+      "type": "official_syllabus",
+      "title": "RGPV IoT IV Semester syllabus",
+      "url": "https://www.rgpv.ac.in/CDN/PubContent/Scheme/including_Block_Chain230222084110.pdf"
+    },
+    {
+      "type": "official_scheme",
+      "title": "RGPV B.Tech IoT VI Semester Scheme",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FIOT+VI+sem+scheme230123124138.pdf"
+    },
+    {
+      "type": "official_syllabus",
+      "title": "RGPV CSBS VI Semester syllabus",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FCSBS_RGPV_6_sem_Syllabus230123124433.pdf"
+    },
+    {
+      "type": "official_scheme",
+      "title": "RGPV CSBS V Semester Scheme",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FCSBS131022010746.pdf"
     }
   ],
   "semesters": [
@@ -476,6 +644,321 @@
             "AL604(B) Information Security & Management",
             "AL604(C) Intelligent Systems for Robotics"
           ],
+          "units": []
+        }
+      ]
+    },
+    {
+      "branch": "AIDS",
+      "semester": 4,
+      "scheme_note": "Official scheme verified for AIDS IV semester (w.e.f. Jan 2022). Unit-wise content is added only where the official syllabus has been checked.",
+      "subjects": [
+        {
+          "code": "BT401",
+          "name": "Mathematics III",
+          "category": "BSC",
+          "units": []
+        },
+        {
+          "code": "AD402",
+          "name": "Database Management Systems",
+          "category": "Core",
+          "units": []
+        },
+        {
+          "code": "AD403",
+          "name": "Software Engineering with Agile Methodology",
+          "category": "Core",
+          "units": []
+        },
+        {
+          "code": "AD404",
+          "name": "Data Science",
+          "category": "Core",
+          "units": []
+        },
+        {
+          "code": "AD405",
+          "name": "Operating Systems",
+          "category": "Core",
+          "units": []
+        },
+        {
+          "code": "AD406",
+          "name": "Data Analytics using R / Power BI / Tableau",
+          "category": "Lab",
+          "units": []
+        }
+      ]
+    },
+    {
+      "branch": "CSBS",
+      "semester": 6,
+      "scheme_note": "Official RGPV CSBS VI semester syllabus located. Detailed scheme subjects and the complete unit text must be matched to the student's scheme revision before publishing all content.",
+      "subjects": [
+        {
+          "code": "CB-606(B)",
+          "name": "Modern Web Applications",
+          "category": "Departmental Elective",
+          "units": [
+            {
+              "unit": "I",
+              "title": "Introduction to Internet & World Wide Web",
+              "topics": [
+                "History of Internet and World Wide Web",
+                "Web browsers and web servers",
+                "Uniform Resource Locator (URL)",
+                "Tools and web programming languages",
+                "Web standards and categories of web applications",
+                "Characteristics of web applications and tiered architecture"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is a URL?",
+                  "answer": "A URL (Uniform Resource Locator) is the address used to locate a resource on the Internet. It commonly contains a protocol, domain name and optional path to the resource.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate a web browser and a web server.",
+                  "answer": "A web browser is client software used to request and display web pages. A web server is software or a computer that stores or processes website resources and sends responses to browser requests.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the basic working of the World Wide Web with a diagram.",
+                  "answer": "A user enters a URL in a browser. The browser resolves the domain using DNS, sends an HTTP/HTTPS request to the web server, and receives a response containing resources such as HTML, CSS, JavaScript and images. The browser renders the page for the user.",
+                  "diagram": "flowchart LR\\nA[User enters URL] --> B[Browser / DNS lookup]\\nB --> C[HTTP request]\\nC --> D[Web server]\\nD --> E[HTTP response]\\nE --> F[Browser renders page]",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "II",
+              "title": "HTML and CSS",
+              "topics": [
+                "Basic HTML page structure",
+                "Text formatting, tables, headings, links, images and lists",
+                "Meta elements",
+                "Inline, internal and external CSS",
+                "Bootstrap CSS, forms, components and dropdowns"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is HTML?",
+                  "answer": "HTML (HyperText Markup Language) is the standard markup language used to structure content on web pages using elements such as headings, paragraphs, links, images and tables.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate inline, internal and external CSS.",
+                  "answer": "Inline CSS is written in an element's style attribute. Internal CSS is written inside a style element in the HTML document. External CSS is stored in a separate .css file and linked to the page. External CSS is easier to reuse and maintain across multiple pages.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the basic structure of an HTML document.",
+                  "answer": "An HTML document begins with a doctype declaration, followed by the html root element. The head contains metadata, title and linked resources. The body contains visible page content such as headings, paragraphs, images and links.",
+                  "diagram": "flowchart TD\\nA[DOCTYPE html] --> B[html]\\nB --> C[head: title and metadata]\\nB --> D[body: visible content]",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "III",
+              "title": "JavaScript and XML",
+              "topics": [
+                "Introduction to JavaScript",
+                "JavaScript objects",
+                "Dynamic HTML with JavaScript",
+                "Bootstrap JavaScript alerts, buttons and popovers",
+                "XML introduction and data structuring",
+                "DTD and XML vocabularies",
+                "DOM with JavaScript and XSL transformations"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is XML?",
+                  "answer": "XML (Extensible Markup Language) is a text-based markup language used to store and transport structured data using user-defined tags.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate HTML and XML.",
+                  "answer": "HTML is designed to display and structure web content using predefined tags. XML is designed to store and transport data using user-defined tags and strict well-formed syntax.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain DOM with a simple diagram.",
+                  "answer": "The Document Object Model represents an HTML or XML document as a tree of objects. JavaScript can access and modify elements, attributes and text through this tree.",
+                  "diagram": "flowchart TD\\nA[Document] --> B[html]\\nB --> C[head]\\nB --> D[body]\\nD --> E[heading]\\nD --> F[paragraph]",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "IV",
+              "title": "PHP Basics",
+              "topics": [
+                "Introduction to PHP",
+                "Numbers, strings, literals, variables, operators and functions",
+                "Arrays",
+                "Creating PHP programs and forms",
+                "Form controls and returned values",
+                "Sessions and user authentication",
+                "Authorization levels"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is PHP?",
+                  "answer": "PHP is a server-side scripting language commonly used to build dynamic web applications and interact with databases.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "What is a PHP session?",
+                  "answer": "A PHP session stores user-specific information on the server across multiple requests. A session identifier usually links the browser to the stored session data.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain how a PHP form is processed.",
+                  "answer": "A browser submits form data to a PHP endpoint using GET or POST. PHP reads and validates the submitted values, performs the required processing and may store or retrieve information from a database. The server then returns an appropriate response.",
+                  "diagram": "flowchart LR\\nA[HTML form] --> B[GET / POST request]\\nB --> C[PHP validation]\\nC --> D[Application logic / database]\\nD --> E[Response to browser]",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "V",
+              "title": "PHP Database Connectivity",
+              "topics": [
+                "Connecting to MySQL server",
+                "Selecting databases and handling errors",
+                "Closing database connections",
+                "Inserting, viewing, updating and deleting records",
+                "Working with joined tables",
+                "Session-based user authentication and authorization"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is CRUD?",
+                  "answer": "CRUD stands for Create, Read, Update and Delete. These are the four basic operations performed on stored data.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Why is input validation important in database applications?",
+                  "answer": "Input validation checks that submitted data has the expected format and allowed values. It reduces invalid records and helps prevent security problems when combined with parameterized SQL queries and proper authorization.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the flow of PHP-MySQL database connectivity.",
+                  "answer": "A PHP application establishes a connection to MySQL, selects the required database, executes parameterized queries, processes the returned result or status, handles errors and closes the connection when work is complete.",
+                  "diagram": "flowchart TD\\nA[PHP application] --> B[Connect to MySQL]\\nB --> C[Select database]\\nC --> D[Execute SQL query]\\nD --> E[Process result]\\nE --> F[Close connection]",
+                  "type": "practice"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "branch": "IOT",
+      "semester": 4,
+      "scheme_note": "Official RGPV CSE-IoT / IoT IV semester scheme and syllabus located. Scheme includes IO401–IO406; unit-wise verified subject content is being populated.",
+      "subjects": [
+        {
+          "code": "IO401",
+          "name": "Probability, Statistics and Linear Algebra",
+          "category": "BSC",
+          "units": []
+        },
+        {
+          "code": "IO402",
+          "name": "Privacy and Security in IoT",
+          "category": "Core",
+          "units": []
+        },
+        {
+          "code": "IO403",
+          "name": "Operating Systems",
+          "category": "Core",
+          "units": []
+        },
+        {
+          "code": "IO404",
+          "name": "Computer Organization & Architecture",
+          "category": "Core",
+          "units": []
+        },
+        {
+          "code": "IO405",
+          "name": "Computer Networks",
+          "category": "Core",
+          "units": []
+        },
+        {
+          "code": "IO406",
+          "name": "Java Lab",
+          "category": "Lab",
+          "units": []
+        }
+      ]
+    },
+    {
+      "branch": "IOT",
+      "semester": 6,
+      "scheme_note": "Official RGPV CSE-IoT / IoT VI semester scheme (w.e.f. Jan 2023) located. Scheme lists IO601 Data Analytics in IoT and elective options; full scheme mapping is pending.",
+      "subjects": [
+        {
+          "code": "IO601",
+          "name": "Data Analytics in IoT",
+          "category": "Core",
+          "units": []
+        },
+        {
+          "code": "IO603(A)",
+          "name": "Sensors and Actuator Devices for IoT",
+          "category": "Departmental Elective",
+          "units": []
+        },
+        {
+          "code": "IO603(B)",
+          "name": "IoT and Multimedia Technology",
+          "category": "Departmental Elective",
+          "units": []
+        },
+        {
+          "code": "IO603(C)",
+          "name": "Introduction to Industry 4.0",
+          "category": "Departmental Elective",
+          "units": []
+        },
+        {
+          "code": "IO604(A)",
+          "name": "Embedded System Design",
+          "category": "Open Elective",
+          "units": []
+        },
+        {
+          "code": "IO604(B)",
+          "name": "Theory of Computation",
+          "category": "Open Elective",
+          "units": []
+        },
+        {
+          "code": "IO604(C)",
+          "name": "Open Source Programming for IoT",
+          "category": "Open Elective",
           "units": []
         }
       ]
