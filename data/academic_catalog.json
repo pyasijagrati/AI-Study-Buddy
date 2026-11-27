@@ -200,11 +200,6 @@
       "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FCSBS_RGPV_6_sem_Syllabus230123124433.pdf"
     },
     {
-      "type": "official_syllabus",
-      "title": "RGPV B.Tech CSE VI Semester Syllabus (official PDF)",
-      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN/PubContent/Scheme/CSE-6_Sem_Syallbus311219032311.pdf"
-    },
-    {
       "type": "paper_archive",
       "title": "CampusPrep RGPV PYQ, notes and subject-wise study library (third-party)",
       "url": "https://campusprep.in/rgpv-question-papers/"
@@ -221,8 +216,28 @@
     },
     {
       "type": "study_material",
-      "title": "CampusPrep AIML Semester 6 — subject-wise syllabus, notes, important questions and PYQ links (some content may require free account)",
-      "url": "https://campusprep.in/rgpv/aiml/sem-6/"
+      "title": "AIML VI Sem · AL-601 Theory of Computation — official syllabus, notes, important questions and PYQs (CampusPrep)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/al-601/"
+    },
+    {
+      "type": "study_material",
+      "title": "AIML VI Sem · AL-602 Computer Networks — syllabus, notes, important questions and PYQs (CampusPrep)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/al-602/"
+    },
+    {
+      "type": "study_material",
+      "title": "CSE VI Sem · CS-601 Machine Learning — syllabus, notes, important questions and PYQs (CampusPrep)",
+      "url": "https://campusprep.in/rgpv/cse/sem-6/cs-601/"
+    },
+    {
+      "type": "study_material",
+      "title": "CSE VI Sem · CS-602 Computer Networks — syllabus, notes, important questions and PYQs (CampusPrep)",
+      "url": "https://campusprep.in/rgpv/cse/sem-6/cs-602/"
+    },
+    {
+      "type": "study_material",
+      "title": "RGPV unit-wise short notes across branches and semesters (CampusPrep)",
+      "url": "https://campusprep.in/rgpv-notes/"
     }
   ],
   "semesters": [
@@ -1103,6 +1118,60 @@
       "label": "AIML Semester 6 subject-wise notes, important questions and PYQ links (third-party)",
       "url": "https://campusprep.in/rgpv/aiml/sem-6/",
       "source_type": "third_party_study"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL601",
+      "subject": "Theory of Computation",
+      "label": "Subject hub: official syllabus, 5 unit notes, 2 important-question sets and PYQs (2023–2025)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/al-601/",
+      "source_type": "third_party_study"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL602",
+      "subject": "Computer Networks",
+      "label": "Subject hub: syllabus, notes, important questions and PYQs; includes Jun 2025 and Jun 2026 papers",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/al-602/",
+      "source_type": "third_party_study"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL601",
+      "subject": "Theory of Computation",
+      "label": "Jun 2025 question paper (third-party paper archive)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/al-601/previous-year-papers/al-601-theory-of-computation-jun-2025/",
+      "source_type": "third_party_pyq"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL602",
+      "subject": "Computer Networks",
+      "label": "Jun 2026 question paper (third-party paper archive)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/al-602/previous-year-papers/al-602-computer-networks-jun-2026/",
+      "source_type": "third_party_pyq"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL602",
+      "subject": "Computer Networks",
+      "label": "Jun 2025 question paper (third-party paper archive)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/al-602/previous-year-papers/al-602-computer-networks-jun-2025/",
+      "source_type": "third_party_pyq"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL602",
+      "subject": "Computer Networks",
+      "label": "Dec 2024 question paper (third-party paper archive)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/al-602/previous-year-papers/al-602-computer-networks-dec-2024/",
+      "source_type": "third_party_pyq"
     }
   ]
 }
