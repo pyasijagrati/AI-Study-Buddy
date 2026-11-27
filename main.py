@@ -285,6 +285,7 @@ def academic_subjects(branch: str = "AIML", semester: int = 6):
 @app.get("/api/academic/search")
 def academic_search(q: str = "", branch: str = "AIML", semester: int = 6):
     query = q.strip().lower()
+    catalog = academic_catalog()
     result = academic_subjects(branch, semester)
     matches = []
     for subject in result["subjects"]:
