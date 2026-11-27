@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0",
-  "coverage_note": "Directory coverage is not the same as fully populated in-app content. Branch-specific third-party directories cover selected branches; the official RGPV Scheme & Syllabus page is the authority. Detailed unit-wise in-app content currently exists only for the semester entries listed under semesters. Verify current scheme and subject code before study.",
+  "coverage_note": "The app contains a verified directory layer for 10 CampusPrep-supported RGPV branches and all 8 semesters, with official RGPV lecture/assignment resources and a 569-subject index. The external portal is not RGPV; verify scheme year and subject code against official RGPV PDFs. Some branches outside the 10 listed have only general RGPV archive links. In-app unit notes and PDF uploads are not yet fully mirrored for every subject.",
   "branches": [
     {
       "code": "CSE",
@@ -309,6 +309,34 @@
         7,
         8
       ]
+    },
+    {
+      "code": "AD",
+      "name": "Artificial Intelligence & Data Science",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "AU",
+      "name": "Automobile Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
     }
   ],
   "sources": [
@@ -513,6 +541,582 @@
       "type": "official_scheme",
       "title": "Official RGPV B.Tech common scheme (AICTE Flexible Curricula, W.E.F. July 2022)",
       "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FWEF+July+2022300824115533.pdf"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AD",
+      "semester": 1,
+      "title": "Artificial Intelligence & Data Science · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ad/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AD",
+      "semester": 2,
+      "title": "Artificial Intelligence & Data Science · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ad/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AD",
+      "semester": 3,
+      "title": "Artificial Intelligence & Data Science · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ad/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AD",
+      "semester": 4,
+      "title": "Artificial Intelligence & Data Science · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ad/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AD",
+      "semester": 5,
+      "title": "Artificial Intelligence & Data Science · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ad/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AD",
+      "semester": 6,
+      "title": "Artificial Intelligence & Data Science · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ad/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AD",
+      "semester": 7,
+      "title": "Artificial Intelligence & Data Science · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ad/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AD",
+      "semester": 8,
+      "title": "Artificial Intelligence & Data Science · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ad/sem-8/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AIML",
+      "semester": 1,
+      "title": "Artificial Intelligence & Machine Learning · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/aiml/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AIML",
+      "semester": 2,
+      "title": "Artificial Intelligence & Machine Learning · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/aiml/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AIML",
+      "semester": 3,
+      "title": "Artificial Intelligence & Machine Learning · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/aiml/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AIML",
+      "semester": 4,
+      "title": "Artificial Intelligence & Machine Learning · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/aiml/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AIML",
+      "semester": 5,
+      "title": "Artificial Intelligence & Machine Learning · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/aiml/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AIML",
+      "semester": 6,
+      "title": "Artificial Intelligence & Machine Learning · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AIML",
+      "semester": 7,
+      "title": "Artificial Intelligence & Machine Learning · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/aiml/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AIML",
+      "semester": 8,
+      "title": "Artificial Intelligence & Machine Learning · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/aiml/sem-8/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CE",
+      "semester": 1,
+      "title": "Civil Engineering · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ce/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CE",
+      "semester": 2,
+      "title": "Civil Engineering · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ce/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CE",
+      "semester": 3,
+      "title": "Civil Engineering · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ce/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CE",
+      "semester": 4,
+      "title": "Civil Engineering · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ce/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CE",
+      "semester": 5,
+      "title": "Civil Engineering · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ce/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CE",
+      "semester": 6,
+      "title": "Civil Engineering · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ce/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CE",
+      "semester": 7,
+      "title": "Civil Engineering · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ce/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CE",
+      "semester": 8,
+      "title": "Civil Engineering · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ce/sem-8/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CSE",
+      "semester": 1,
+      "title": "Computer Science & Engineering · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cse/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CSE",
+      "semester": 2,
+      "title": "Computer Science & Engineering · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cse/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CSE",
+      "semester": 3,
+      "title": "Computer Science & Engineering · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cse/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CSE",
+      "semester": 4,
+      "title": "Computer Science & Engineering · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cse/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CSE",
+      "semester": 5,
+      "title": "Computer Science & Engineering · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cse/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CSE",
+      "semester": 6,
+      "title": "Computer Science & Engineering · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cse/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CSE",
+      "semester": 7,
+      "title": "Computer Science & Engineering · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cse/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CSE",
+      "semester": 8,
+      "title": "Computer Science & Engineering · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cse/sem-8/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CY",
+      "semester": 1,
+      "title": "Cyber Security · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cy/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CY",
+      "semester": 2,
+      "title": "Cyber Security · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cy/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CY",
+      "semester": 3,
+      "title": "Cyber Security · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cy/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CY",
+      "semester": 4,
+      "title": "Cyber Security · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cy/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CY",
+      "semester": 5,
+      "title": "Cyber Security · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cy/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CY",
+      "semester": 6,
+      "title": "Cyber Security · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cy/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CY",
+      "semester": 7,
+      "title": "Cyber Security · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cy/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "CY",
+      "semester": 8,
+      "title": "Cyber Security · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/cy/sem-8/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ECE",
+      "semester": 1,
+      "title": "Electronics & Communication Engineering · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ece/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ECE",
+      "semester": 2,
+      "title": "Electronics & Communication Engineering · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ece/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ECE",
+      "semester": 3,
+      "title": "Electronics & Communication Engineering · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ece/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ECE",
+      "semester": 4,
+      "title": "Electronics & Communication Engineering · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ece/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ECE",
+      "semester": 5,
+      "title": "Electronics & Communication Engineering · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ece/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ECE",
+      "semester": 6,
+      "title": "Electronics & Communication Engineering · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ece/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ECE",
+      "semester": 7,
+      "title": "Electronics & Communication Engineering · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ece/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ECE",
+      "semester": 8,
+      "title": "Electronics & Communication Engineering · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ece/sem-8/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "EX",
+      "semester": 1,
+      "title": "Electrical & Electronics Engineering · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ex/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "EX",
+      "semester": 2,
+      "title": "Electrical & Electronics Engineering · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ex/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "EX",
+      "semester": 3,
+      "title": "Electrical & Electronics Engineering · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ex/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "EX",
+      "semester": 4,
+      "title": "Electrical & Electronics Engineering · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ex/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "EX",
+      "semester": 5,
+      "title": "Electrical & Electronics Engineering · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ex/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "EX",
+      "semester": 6,
+      "title": "Electrical & Electronics Engineering · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ex/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "EX",
+      "semester": 7,
+      "title": "Electrical & Electronics Engineering · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ex/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "EX",
+      "semester": 8,
+      "title": "Electrical & Electronics Engineering · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/ex/sem-8/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "IT",
+      "semester": 1,
+      "title": "Information Technology · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/it/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "IT",
+      "semester": 2,
+      "title": "Information Technology · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/it/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "IT",
+      "semester": 3,
+      "title": "Information Technology · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/it/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "IT",
+      "semester": 4,
+      "title": "Information Technology · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/it/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "IT",
+      "semester": 5,
+      "title": "Information Technology · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/it/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "IT",
+      "semester": 6,
+      "title": "Information Technology · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/it/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "IT",
+      "semester": 7,
+      "title": "Information Technology · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/it/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "IT",
+      "semester": 8,
+      "title": "Information Technology · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/it/sem-8/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ME",
+      "semester": 1,
+      "title": "Mechanical Engineering · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/me/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ME",
+      "semester": 2,
+      "title": "Mechanical Engineering · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/me/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ME",
+      "semester": 3,
+      "title": "Mechanical Engineering · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/me/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ME",
+      "semester": 4,
+      "title": "Mechanical Engineering · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/me/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ME",
+      "semester": 5,
+      "title": "Mechanical Engineering · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/me/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ME",
+      "semester": 6,
+      "title": "Mechanical Engineering · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/me/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ME",
+      "semester": 7,
+      "title": "Mechanical Engineering · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/me/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "ME",
+      "semester": 8,
+      "title": "Mechanical Engineering · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/me/sem-8/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "AU",
+      "title": "Automobile Engineering — all 8 semesters: syllabus, subjects, notes, important questions and PYQs",
+      "url": "https://campusprep.in/rgpv/au/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AU",
+      "semester": 1,
+      "title": "Automobile Engineering · Semester 1 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/au/sem-1/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AU",
+      "semester": 2,
+      "title": "Automobile Engineering · Semester 2 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/au/sem-2/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AU",
+      "semester": 3,
+      "title": "Automobile Engineering · Semester 3 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/au/sem-3/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AU",
+      "semester": 4,
+      "title": "Automobile Engineering · Semester 4 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/au/sem-4/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AU",
+      "semester": 5,
+      "title": "Automobile Engineering · Semester 5 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/au/sem-5/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AU",
+      "semester": 6,
+      "title": "Automobile Engineering · Semester 6 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/au/sem-6/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AU",
+      "semester": 7,
+      "title": "Automobile Engineering · Semester 7 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/au/sem-7/"
+    },
+    {
+      "type": "semester_directory",
+      "branch": "AU",
+      "semester": 8,
+      "title": "Automobile Engineering · Semester 8 — subject list, unit-wise syllabus, notes, important questions and previous papers",
+      "url": "https://campusprep.in/rgpv/au/sem-8/"
+    },
+    {
+      "type": "official_material",
+      "title": "Official RGPV Notes, Lectures and Assignments — branch-wise learning resources",
+      "url": "https://www.rgpv.ac.in/campus/onlinelecture.htm"
+    },
+    {
+      "type": "subject_index",
+      "title": "All RGPV B.Tech subjects — 569 subject-code entries across branches and semesters (CampusPrep index)",
+      "url": "https://campusprep.in/rgpv/subjects/"
     }
   ],
   "semesters": [
