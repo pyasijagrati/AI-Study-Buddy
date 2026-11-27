@@ -35,10 +35,7 @@ async function loadResources(){
  const catalog=catalogResult.status==='fulfilled'?catalogResult.value:null;
  let html='';
  if(catalog){
-  const sources=(catalog.sources||[]).filter(s=>{
-   const q=[$('#filterBranch')?.value,$('#filterSemester')?.value,$('#filterSubject')?.value].filter(Boolean).join(' ').toLowerCase();
-   return !q||[s.title,s.type].join(' ').toLowerCase().includes(q)||q.includes('rgpv');
-  });
+  const sources=(catalog.sources||[]);
   html+='<section class="panel-card"><span class="eyebrow">RGPV STUDY LIBRARY</span><h3>Official syllabus & study-paper links</h3><p class="notice">Official RGPV scheme/syllabus PDFs open from the university website. Question-paper archive is third-party; verify subject code and exam session before using a paper as a PYQ.</p>';
   html+=sources.length?sources.map(s=>'<div class="resource-item"><div><b>'+escapeHtml(s.title)+'</b><small>'+escapeHtml(s.type==='paper_archive'?'Question-paper archive · Third-party':s.type==='study_material'?'Notes, important questions & PYQs · Third-party':s.type==='official_scheme'?'Official RGPV scheme PDF':s.type==='official_syllabus'?'Official RGPV syllabus PDF':'Study resource · External source')+'</small></div><a class="feature-link" href="'+escapeHtml(s.url)+'" target="_blank" rel="noopener noreferrer">Open resource ↗</a></div>').join(''):'<p class="notice">No source links match these filters. Clear filters to see all available documents.</p>';
   const questionCount=(catalog.semesters||[]).reduce((n,row)=>n+(row.subjects||[]).reduce((m,subject)=>m+(subject.units||[]).reduce((k,unit)=>k+(unit.important_questions||[]).length,0),0),0);
