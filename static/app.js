@@ -63,5 +63,7 @@ function renderAcademic(){
   });
   html+='</section>';
  });
+ const pyqs=(academicData.pyq_links||[]).filter(p=>p.branch===branch&&p.semester===sem&&(!code||p.subject_code===code));
+ if(pyqs.length){html+='<section class="panel-card" style="margin-top:14px"><h3>Previous Year Question Paper archives</h3><p class="notice">These links open third-party paper indexes. Confirm the subject code, exam session and PDF before treating a paper as an authentic PYQ.</p>'+pyqs.map(p=>'<div class="resource-item"><div><b>'+escapeHtml(p.subject_code+' · '+p.subject)+'</b><small>'+escapeHtml(p.label)+'</small></div><a class="feature-link" href="'+escapeHtml(p.url)+'" target="_blank" rel="noopener">Open archive →</a></div>').join('')+'</section>';}
  box.innerHTML=html;
 }
