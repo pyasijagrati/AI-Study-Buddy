@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0",
-  "coverage_note": "Branch list is a broad B.Tech directory. Official RGPV links are authoritative for scheme/syllabus. Third-party portals are indexes for notes/PYQs; check subject code, scheme and exam session. Not every branch-semester-subject has been individually verified in this app yet.",
+  "coverage_note": "Directory coverage is not the same as fully populated in-app content. Branch-specific third-party directories cover selected branches; the official RGPV Scheme & Syllabus page is the authority. Detailed unit-wise in-app content currently exists only for the semester entries listed under semesters. Verify current scheme and subject code before study.",
   "branches": [
     {
       "code": "CSE",
@@ -436,6 +436,83 @@
       "type": "paper_archive",
       "title": "RGPV official university website — student and examination resources",
       "url": "https://www.rgpv.ac.in/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "AIML",
+      "title": "Artificial Intelligence & Machine Learning — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://campusprep.in/rgpv/aiml/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "AIDS",
+      "title": "Artificial Intelligence & Data Science — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://campusprep.in/rgpv/ad/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "CE",
+      "title": "Civil Engineering — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://campusprep.in/rgpv/ce/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "CSE",
+      "title": "Computer Science & Engineering — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://campusprep.in/rgpv/cse/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "CY",
+      "title": "Cyber Security — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://campusprep.in/rgpv/cy/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "ECE",
+      "title": "Electronics & Communication Engineering — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://campusprep.in/rgpv/ece/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "EX",
+      "title": "Electrical & Electronics Engineering — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://campusprep.in/rgpv/ex/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "IT",
+      "title": "Information Technology — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://campusprep.in/rgpv/it/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "ME",
+      "title": "Mechanical Engineering — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://campusprep.in/rgpv/me/"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "CSBS",
+      "title": "Computer Science & Business Systems — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://paperwala.org/rgpv/btech/csbs"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "CSE",
+      "title": "Computer Science & Engineering — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://paperwala.org/rgpv/btech/cse"
+    },
+    {
+      "type": "branch_directory",
+      "branch": "CE",
+      "title": "Civil Engineering — semester 1–8 syllabus, subject notes and previous-year papers directory",
+      "url": "https://paperwala.org/rgpv/btech/civil"
+    },
+    {
+      "type": "official_scheme",
+      "title": "Official RGPV B.Tech common scheme (AICTE Flexible Curricula, W.E.F. July 2022)",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FWEF+July+2022300824115533.pdf"
     }
   ],
   "semesters": [
