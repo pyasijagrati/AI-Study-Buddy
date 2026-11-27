@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0",
-  "coverage_note": "Branch and semester selectors cover the listed B.Tech streams. Only semester entries with a source and populated subjects contain verified starter content; all other branch/semester combinations are explicitly marked as pending verification.",
+  "coverage_note": "Branch/semester selectors cover the listed streams. Detailed content is published only for populated units; subject-only entries are explicitly marked pending. Confirm each student's admission batch and scheme revision before relying on codes/electives.",
   "branches": [
     {
       "code": "CSE",
@@ -193,6 +193,11 @@
       "type": "official_scheme",
       "title": "RGPV CSBS V Semester Scheme",
       "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FCSBS131022010746.pdf"
+    },
+    {
+      "type": "official_syllabus",
+      "title": "RGPV CSBS VI Semester syllabus (CB-601 Computer Networks)",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FCSBS_RGPV_6_sem_Syllabus230123124433.pdf"
     }
   ],
   "semesters": [
@@ -657,37 +662,43 @@
           "code": "BT401",
           "name": "Mathematics III",
           "category": "BSC",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "AD402",
           "name": "Database Management Systems",
           "category": "Core",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "AD403",
           "name": "Software Engineering with Agile Methodology",
           "category": "Core",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "AD404",
           "name": "Data Science",
           "category": "Core",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "AD405",
           "name": "Operating Systems",
           "category": "Core",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "AD406",
           "name": "Data Analytics using R / Power BI / Tableau",
           "category": "Lab",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         }
       ]
     },
@@ -697,172 +708,177 @@
       "scheme_note": "Official RGPV CSBS VI semester syllabus located. Detailed scheme subjects and the complete unit text must be matched to the student's scheme revision before publishing all content.",
       "subjects": [
         {
-          "code": "CB-606(B)",
-          "name": "Modern Web Applications",
-          "category": "Departmental Elective",
+          "code": "CB-601",
+          "name": "Computer Networks",
+          "category": "Core",
+          "syllabus_source": "official_syllabus",
           "units": [
             {
               "unit": "I",
-              "title": "Introduction to Internet & World Wide Web",
+              "title": "Introduction and Data Communication",
               "topics": [
-                "History of Internet and World Wide Web",
-                "Web browsers and web servers",
-                "Uniform Resource Locator (URL)",
-                "Tools and web programming languages",
-                "Web standards and categories of web applications",
-                "Characteristics of web applications and tiered architecture"
+                "Computer networks and distributed systems",
+                "Classification of computer networks",
+                "Layered network structures",
+                "Data communication components and flow",
+                "Network topologies, protocols and standards",
+                "OSI model and transmission media",
+                "Wired, wireless and virtual LAN",
+                "Multiplexing: FDM, TDM, WDM and spread spectrum"
               ],
               "important_questions": [
                 {
                   "marks": 2,
-                  "question": "What is a URL?",
-                  "answer": "A URL (Uniform Resource Locator) is the address used to locate a resource on the Internet. It commonly contains a protocol, domain name and optional path to the resource.",
+                  "question": "What is a computer network?",
+                  "answer": "A computer network is a group of interconnected devices that communicate and share data or resources using communication links and agreed protocols.",
                   "type": "practice"
                 },
                 {
                   "marks": 5,
-                  "question": "Differentiate a web browser and a web server.",
-                  "answer": "A web browser is client software used to request and display web pages. A web server is software or a computer that stores or processes website resources and sends responses to browser requests.",
+                  "question": "Explain the OSI model.",
+                  "answer": "The OSI model divides network communication into seven layers: Physical, Data Link, Network, Transport, Session, Presentation and Application. Each layer performs defined functions and provides services to the layer above it.",
                   "type": "practice"
                 },
                 {
                   "marks": 10,
-                  "question": "Explain the basic working of the World Wide Web with a diagram.",
-                  "answer": "A user enters a URL in a browser. The browser resolves the domain using DNS, sends an HTTP/HTTPS request to the web server, and receives a response containing resources such as HTML, CSS, JavaScript and images. The browser renders the page for the user.",
-                  "diagram": "flowchart LR\\nA[User enters URL] --> B[Browser / DNS lookup]\\nB --> C[HTTP request]\\nC --> D[Web server]\\nD --> E[HTTP response]\\nE --> F[Browser renders page]",
+                  "question": "Explain the OSI reference model with a diagram.",
+                  "answer": "The OSI model is a seven-layer framework for understanding network communication. Data moves from the Application layer down to Physical layer at the sender, crosses the medium, and moves upward through the layers at the receiver. Each layer communicates logically with its peer layer.",
+                  "diagram": "flowchart TB\\nA[Application] --> B[Presentation]\\nB --> C[Session]\\nC --> D[Transport]\\nD --> E[Network]\\nE --> F[Data Link]\\nF --> G[Physical]",
                   "type": "practice"
                 }
               ]
             },
             {
               "unit": "II",
-              "title": "HTML and CSS",
+              "title": "Data Link Layer and Medium Access Control",
               "topics": [
-                "Basic HTML page structure",
-                "Text formatting, tables, headings, links, images and lists",
-                "Meta elements",
-                "Inline, internal and external CSS",
-                "Bootstrap CSS, forms, components and dropdowns"
+                "Error detection and correction",
+                "Block coding and Hamming distance",
+                "CRC",
+                "Stop-and-Wait, Go-Back-N and Selective Repeat ARQ",
+                "Sliding window and piggybacking",
+                "Random access protocols",
+                "Pure and Slotted ALOHA",
+                "CSMA/CD and CSMA/CA"
               ],
               "important_questions": [
                 {
                   "marks": 2,
-                  "question": "What is HTML?",
-                  "answer": "HTML (HyperText Markup Language) is the standard markup language used to structure content on web pages using elements such as headings, paragraphs, links, images and tables.",
+                  "question": "What is CRC?",
+                  "answer": "Cyclic Redundancy Check (CRC) is an error-detection technique that treats a bit sequence as a polynomial and uses modulo-2 division to generate a check value.",
                   "type": "practice"
                 },
                 {
                   "marks": 5,
-                  "question": "Differentiate inline, internal and external CSS.",
-                  "answer": "Inline CSS is written in an element's style attribute. Internal CSS is written inside a style element in the HTML document. External CSS is stored in a separate .css file and linked to the page. External CSS is easier to reuse and maintain across multiple pages.",
+                  "question": "Differentiate Go-Back-N and Selective Repeat ARQ.",
+                  "answer": "In Go-Back-N, when a frame is lost or damaged, the sender retransmits that frame and all following frames in the window. In Selective Repeat, only the specific lost or damaged frames are retransmitted and correctly received frames can be buffered.",
                   "type": "practice"
                 },
                 {
                   "marks": 10,
-                  "question": "Explain the basic structure of an HTML document.",
-                  "answer": "An HTML document begins with a doctype declaration, followed by the html root element. The head contains metadata, title and linked resources. The body contains visible page content such as headings, paragraphs, images and links.",
-                  "diagram": "flowchart TD\\nA[DOCTYPE html] --> B[html]\\nB --> C[head: title and metadata]\\nB --> D[body: visible content]",
+                  "question": "Explain the working of Stop-and-Wait ARQ.",
+                  "answer": "The sender transmits one frame and waits for an acknowledgement. If a valid ACK arrives, it sends the next frame. If the frame or ACK is lost, a timer expires and the sender retransmits the frame. Sequence numbers help identify duplicates.",
+                  "diagram": "flowchart TD\\nA[Send one frame] --> B[Start timer and wait for ACK]\\nB --> C{ACK received?}\\nC -->|Yes| D[Send next frame]\\nC -->|No / timeout| E[Retransmit frame]\\nE --> B",
                   "type": "practice"
                 }
               ]
             },
             {
               "unit": "III",
-              "title": "JavaScript and XML",
+              "title": "Network Layer",
               "topics": [
-                "Introduction to JavaScript",
-                "JavaScript objects",
-                "Dynamic HTML with JavaScript",
-                "Bootstrap JavaScript alerts, buttons and popovers",
-                "XML introduction and data structuring",
-                "DTD and XML vocabularies",
-                "DOM with JavaScript and XSL transformations"
+                "Switching",
+                "IPv4 and IPv6 logical addressing",
+                "ARP, RARP, BOOTP and DHCP",
+                "Packet delivery and forwarding",
+                "Unicast routing protocols"
               ],
               "important_questions": [
                 {
                   "marks": 2,
-                  "question": "What is XML?",
-                  "answer": "XML (Extensible Markup Language) is a text-based markup language used to store and transport structured data using user-defined tags.",
+                  "question": "What is an IP address?",
+                  "answer": "An IP address is a logical address assigned to a network interface so that devices can be identified and packets can be routed across IP networks.",
                   "type": "practice"
                 },
                 {
                   "marks": 5,
-                  "question": "Differentiate HTML and XML.",
-                  "answer": "HTML is designed to display and structure web content using predefined tags. XML is designed to store and transport data using user-defined tags and strict well-formed syntax.",
+                  "question": "Differentiate IPv4 and IPv6.",
+                  "answer": "IPv4 uses 32-bit addresses written in dotted-decimal notation, while IPv6 uses 128-bit addresses written in hexadecimal groups. IPv6 provides a much larger address space and simplifies several aspects of address configuration and packet handling.",
                   "type": "practice"
                 },
                 {
                   "marks": 10,
-                  "question": "Explain DOM with a simple diagram.",
-                  "answer": "The Document Object Model represents an HTML or XML document as a tree of objects. JavaScript can access and modify elements, attributes and text through this tree.",
-                  "diagram": "flowchart TD\\nA[Document] --> B[html]\\nB --> C[head]\\nB --> D[body]\\nD --> E[heading]\\nD --> F[paragraph]",
+                  "question": "Explain DHCP operation.",
+                  "answer": "A client without an IP address broadcasts a DHCP Discover message. A server responds with an Offer. The client sends a Request for the offered configuration, and the server confirms it with an Acknowledgement. This is commonly called DORA.",
+                  "diagram": "flowchart LR\\nA[Discover] --> B[Offer]\\nB --> C[Request]\\nC --> D[Acknowledgement]",
                   "type": "practice"
                 }
               ]
             },
             {
               "unit": "IV",
-              "title": "PHP Basics",
+              "title": "Transport Layer",
               "topics": [
-                "Introduction to PHP",
-                "Numbers, strings, literals, variables, operators and functions",
-                "Arrays",
-                "Creating PHP programs and forms",
-                "Form controls and returned values",
-                "Sessions and user authentication",
-                "Authorization levels"
+                "Process-to-process communication",
+                "UDP and TCP",
+                "SCTP",
+                "Congestion control",
+                "Quality of Service",
+                "Leaky Bucket and Token Bucket algorithms"
               ],
               "important_questions": [
                 {
                   "marks": 2,
-                  "question": "What is PHP?",
-                  "answer": "PHP is a server-side scripting language commonly used to build dynamic web applications and interact with databases.",
+                  "question": "What is TCP?",
+                  "answer": "Transmission Control Protocol (TCP) is a connection-oriented transport protocol that provides reliable, ordered byte-stream delivery using acknowledgements, sequence numbers and retransmissions.",
                   "type": "practice"
                 },
                 {
                   "marks": 5,
-                  "question": "What is a PHP session?",
-                  "answer": "A PHP session stores user-specific information on the server across multiple requests. A session identifier usually links the browser to the stored session data.",
+                  "question": "Differentiate TCP and UDP.",
+                  "answer": "TCP is connection-oriented and provides reliable, ordered delivery with flow and congestion control. UDP is connectionless and has lower overhead but does not guarantee delivery, ordering or retransmission.",
                   "type": "practice"
                 },
                 {
                   "marks": 10,
-                  "question": "Explain how a PHP form is processed.",
-                  "answer": "A browser submits form data to a PHP endpoint using GET or POST. PHP reads and validates the submitted values, performs the required processing and may store or retrieve information from a database. The server then returns an appropriate response.",
-                  "diagram": "flowchart LR\\nA[HTML form] --> B[GET / POST request]\\nB --> C[PHP validation]\\nC --> D[Application logic / database]\\nD --> E[Response to browser]",
+                  "question": "Explain the TCP three-way handshake.",
+                  "answer": "TCP establishes a connection using three messages. The client sends SYN, the server responds with SYN-ACK, and the client sends ACK. After these steps, both sides can begin data transfer.",
+                  "diagram": "flowchart TD\\nA[Client: SYN] --> B[Server: SYN + ACK]\\nB --> C[Client: ACK]\\nC --> D[Connection established]",
                   "type": "practice"
                 }
               ]
             },
             {
               "unit": "V",
-              "title": "PHP Database Connectivity",
+              "title": "Application Layer and Network Security",
               "topics": [
-                "Connecting to MySQL server",
-                "Selecting databases and handling errors",
-                "Closing database connections",
-                "Inserting, viewing, updating and deleting records",
-                "Working with joined tables",
-                "Session-based user authentication and authorization"
+                "DNS and DDNS",
+                "TELNET, email and FTP",
+                "WWW and HTTP",
+                "SNMP and Bluetooth",
+                "Firewalls",
+                "Electronic mail and directory services",
+                "Network management",
+                "Basic cryptography concepts"
               ],
               "important_questions": [
                 {
                   "marks": 2,
-                  "question": "What is CRUD?",
-                  "answer": "CRUD stands for Create, Read, Update and Delete. These are the four basic operations performed on stored data.",
+                  "question": "What is DNS?",
+                  "answer": "The Domain Name System (DNS) translates human-readable domain names into IP addresses and supports other name-related records used by Internet services.",
                   "type": "practice"
                 },
                 {
                   "marks": 5,
-                  "question": "Why is input validation important in database applications?",
-                  "answer": "Input validation checks that submitted data has the expected format and allowed values. It reduces invalid records and helps prevent security problems when combined with parameterized SQL queries and proper authorization.",
+                  "question": "What is a firewall?",
+                  "answer": "A firewall is a hardware or software security control that monitors and filters incoming and outgoing network traffic according to defined rules. It helps restrict unauthorized communication.",
                   "type": "practice"
                 },
                 {
                   "marks": 10,
-                  "question": "Explain the flow of PHP-MySQL database connectivity.",
-                  "answer": "A PHP application establishes a connection to MySQL, selects the required database, executes parameterized queries, processes the returned result or status, handles errors and closes the connection when work is complete.",
-                  "diagram": "flowchart TD\\nA[PHP application] --> B[Connect to MySQL]\\nB --> C[Select database]\\nC --> D[Execute SQL query]\\nD --> E[Process result]\\nE --> F[Close connection]",
+                  "question": "Explain how DNS resolves a domain name.",
+                  "answer": "A client asks a DNS resolver for a domain's IP address. If the answer is not cached, the resolver queries the DNS hierarchy, obtains the authoritative response, caches it for its TTL and returns the IP address to the client.",
+                  "diagram": "flowchart TD\\nA[Browser asks for domain] --> B[DNS resolver]\\nB --> C[DNS hierarchy / authoritative server]\\nC --> D[IP address returned]\\nD --> E[Browser connects to server]",
                   "type": "practice"
                 }
               ]
@@ -880,37 +896,43 @@
           "code": "IO401",
           "name": "Probability, Statistics and Linear Algebra",
           "category": "BSC",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO402",
           "name": "Privacy and Security in IoT",
           "category": "Core",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO403",
           "name": "Operating Systems",
           "category": "Core",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO404",
           "name": "Computer Organization & Architecture",
           "category": "Core",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO405",
           "name": "Computer Networks",
           "category": "Core",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO406",
           "name": "Java Lab",
           "category": "Lab",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         }
       ]
     },
@@ -923,43 +945,57 @@
           "code": "IO601",
           "name": "Data Analytics in IoT",
           "category": "Core",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
+        },
+        {
+          "code": "IO602",
+          "name": "Wireless Ad-hoc Networks",
+          "category": "Core",
+          "units": [],
+          "syllabus_status": "Subject code and title confirmed from the RGPV VI semester scheme; detailed unit-wise content is pending syllabus verification."
         },
         {
           "code": "IO603(A)",
           "name": "Sensors and Actuator Devices for IoT",
           "category": "Departmental Elective",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO603(B)",
           "name": "IoT and Multimedia Technology",
           "category": "Departmental Elective",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO603(C)",
           "name": "Introduction to Industry 4.0",
           "category": "Departmental Elective",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO604(A)",
           "name": "Embedded System Design",
           "category": "Open Elective",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO604(B)",
           "name": "Theory of Computation",
           "category": "Open Elective",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         },
         {
           "code": "IO604(C)",
           "name": "Open Source Programming for IoT",
           "category": "Open Elective",
-          "units": []
+          "units": [],
+          "syllabus_status": "Subject title/code mapped from the referenced semester scheme. Unit-wise syllabus, easy answers and diagrams are not yet published; awaiting matching official syllabus text."
         }
       ]
     }
