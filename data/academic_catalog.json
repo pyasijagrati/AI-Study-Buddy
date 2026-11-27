@@ -1117,6 +1117,90 @@
       "type": "subject_index",
       "title": "All RGPV B.Tech subjects — 569 subject-code entries across branches and semesters (CampusPrep index)",
       "url": "https://campusprep.in/rgpv/subjects/"
+    },
+    {
+      "type": "official_scheme",
+      "branch": "CSE",
+      "title": "II Year Computer Sciences — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/II_YEAR_CS_UIT.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "CSE",
+      "title": "III Year Computer Sciences — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/IIIrd_year_CS_Scheme_UIT.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "CE",
+      "title": "II Year Civil Engineering — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/IInd_year_CE_Scheme_UIT.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "CE",
+      "title": "III Year Civil Engineering — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/SCHEME_CE_III_YEAR_UIT.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "EE",
+      "title": "II Year Electrical Engineering — official RGPV archived scheme (EX stream)",
+      "url": "https://www.rgpv.ac.in/pdf/IInd_year_EX_Scheme_UIT%20.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "EE",
+      "title": "III Year Electrical Engineering — official RGPV archived scheme (EX stream)",
+      "url": "https://www.rgpv.ac.in/pdf/IIIrd_year_EX_Scheme_UIT.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "ECE",
+      "title": "II Year Electronics & Communication — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/IInd_yearEC_Scheme_UIT.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "ECE",
+      "title": "III Year Electronics & Communication — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/IIIrd_yearEC_Scheme_UIT.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "IT",
+      "title": "II Year Information Technology — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/IT-IInd%20YearScheme.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "IT",
+      "title": "III Year Information Technology — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/IT%20IIIrd%20YEAR%20Scheme.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "ME",
+      "title": "II Year Mechanical Engineering — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/IInd_Year_ME_Scheme_UIT.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
+    },
+    {
+      "type": "official_scheme",
+      "branch": "ME",
+      "title": "III Year Mechanical Engineering — official RGPV archived scheme",
+      "url": "https://www.rgpv.ac.in/pdf/SCHEME_ME_%20III_YEAR_UIT.pdf",
+      "scheme_note": "Official RGPV archive document; confirm current applicable scheme before studying."
     }
   ],
   "semesters": [
