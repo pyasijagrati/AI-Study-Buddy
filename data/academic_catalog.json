@@ -1,0 +1,321 @@
+{
+  "catalog_version": "1.0",
+  "coverage_note": "Starter verified catalogue. This is not yet a complete all-branch/all-semester library. Expand only from matching RGPV scheme PDFs and authentic paper scans.",
+  "branches": [
+    {
+      "code": "AIML",
+      "name": "Artificial Intelligence & Machine Learning",
+      "semesters": [
+        6
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "type": "official_scheme",
+      "title": "RGPV B.Tech AIML VI Semester Scheme (w.e.f. Jan 2023)",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FAIML+VI+sem+scheme060123014425.pdf"
+    },
+    {
+      "type": "official_syllabus",
+      "title": "RGPV AIML VI Semester Syllabus",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FVI_Sem_AIML_SY170123114104.pdf"
+    },
+    {
+      "type": "paper_archive",
+      "title": "RGPV Question Papers index (third-party archive; verify paper code/session)",
+      "url": "https://rgpvquestionpapers.in/all-papers"
+    }
+  ],
+  "semesters": [
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "scheme_note": "Official RGPV scheme lists AL601 Theory of Computation, AL602 Computer Networks, AL603 departmental elective, AL604 open elective, AL605/AL606 labs, AL607 Internship-III and AL608 Minor Project-II. Elective subjects depend on the student's selected option.",
+      "subjects": [
+        {
+          "code": "AL601",
+          "name": "Theory of Computation",
+          "category": "Core",
+          "syllabus_source": "official_syllabus",
+          "units": [
+            {
+              "unit": "I",
+              "title": "Introduction to Automata Theory",
+              "topics": [
+                "Examples of automata machines",
+                "Finite automata as language acceptor and translator",
+                "Moore and Mealy machines",
+                "Composite machines",
+                "Conversion between Mealy and Moore machines"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "Define finite automaton.",
+                  "answer": "A finite automaton is a mathematical machine with a finite number of states. It reads an input string one symbol at a time and changes state according to its transition function. It accepts a string if it finishes in a final state.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate Moore machine and Mealy machine.",
+                  "answer": "A Moore machine produces output based only on its present state, whereas a Mealy machine produces output based on its present state and current input. Moore outputs are written on states; Mealy outputs are written on transitions. Mealy machines often need fewer states, while Moore outputs are generally more stable.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the structure of a finite automaton with a neat diagram.",
+                  "answer": "A finite automaton consists of a finite set of states (Q), input alphabet (Σ), transition function (δ), start state (q0), and final states (F). It processes each input symbol and moves to the next state. Acceptance occurs when the input is completely read and the current state belongs to F.",
+                  "diagram": "flowchart LR\\nA([Start]) --> B[Read input symbol]\\nB --> C{Transition function δ}\\nC --> D[Next state]\\nD -->|More input| B\\nD -->|Input finished| E{Final state?}\\nE -->|Yes| F([Accept])\\nE -->|No| G([Reject])",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "II",
+              "title": "Types of Finite Automata",
+              "topics": [
+                "DFA and NFA/NDFA",
+                "Conversion of NFA to DFA",
+                "Minimization of finite automata",
+                "Regular expressions",
+                "Arden's theorem",
+                "Union, intersection, concatenation and closure",
+                "Two-way DFA"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is the difference between DFA and NFA?",
+                  "answer": "In a DFA, for each state and input symbol exactly one next state exists. In an NFA, zero, one or many next states may be possible. Both recognize regular languages.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "What is a regular expression? Give examples.",
+                  "answer": "A regular expression is an algebraic notation used to describe a regular language. For alphabet {0,1}, (0+1)* represents all binary strings, including the empty string; 0(0+1)* represents strings beginning with 0.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the subset construction method for converting NFA into DFA.",
+                  "answer": "Start with the set containing the NFA start state (or its epsilon-closure). Treat every set of NFA states as one DFA state. For each input symbol, collect all reachable NFA states and take epsilon-closure if needed. Repeat until no new sets are generated. Any set containing an NFA final state becomes a DFA final state.",
+                  "diagram": "flowchart TD\\nA([NFA start state]) --> B[Create initial state-set]\\nB --> C[For each input symbol, find reachable states]\\nC --> D[Create a new state-set]\\nD --> E{Any unseen state-set?}\\nE -->|Yes| C\\nE -->|No| F[Mark sets containing NFA final state]\\nF --> G([Equivalent DFA])",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "III",
+              "title": "Grammars",
+              "topics": [
+                "Types of grammar",
+                "Context-free and context-sensitive grammar",
+                "Regular grammar",
+                "Derivation trees and ambiguity",
+                "CFG simplification",
+                "Grammar and automata conversion",
+                "Chomsky hierarchy",
+                "Null and unit production removal",
+                "Chomsky Normal Form",
+                "Greibach Normal Form"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is a context-free grammar (CFG)?",
+                  "answer": "A CFG is a four-tuple G=(V,Σ,P,S), where V is the set of variables, Σ is the set of terminals, P is the set of production rules and S is the start symbol. Each production has one variable on its left side.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain ambiguity in grammar.",
+                  "answer": "A grammar is ambiguous if at least one string generated by it has more than one distinct parse tree or more than one leftmost/rightmost derivation. Ambiguity can create multiple interpretations of the same expression.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain Chomsky hierarchy of grammars.",
+                  "answer": "The Chomsky hierarchy classifies grammars into four levels: Type-0 unrestricted, Type-1 context-sensitive, Type-2 context-free and Type-3 regular. Their language classes are progressively more restricted: regular is a subset of context-free, which is a subset of context-sensitive, which is a subset of recursively enumerable languages.",
+                  "diagram": "flowchart TB\\nA[Type 0: Unrestricted] --> B[Type 1: Context-sensitive]\\nB --> C[Type 2: Context-free]\\nC --> D[Type 3: Regular]",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "IV",
+              "title": "Push Down Automata",
+              "topics": [
+                "PDA and examples",
+                "Deterministic and non-deterministic PDA",
+                "Conversion between PDA and CFG",
+                "CFG equivalent to PDA",
+                "Petri net model"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is a Pushdown Automaton?",
+                  "answer": "A Pushdown Automaton (PDA) is a finite automaton equipped with a stack. The stack gives it additional memory and enables it to recognize context-free languages.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate finite automaton and pushdown automaton.",
+                  "answer": "A finite automaton has only finite-state memory and recognizes regular languages. A PDA has an additional stack, can store an unbounded stack sequence, and recognizes context-free languages. Example: a PDA can recognize balanced parentheses.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the working of a Pushdown Automaton with diagram.",
+                  "answer": "A PDA reads an input symbol, checks the top of its stack, changes state and may push or pop stack symbols. Acceptance can be by final state or empty stack, depending on the definition. The stack helps match nested structures such as balanced parentheses.",
+                  "diagram": "flowchart LR\\nA([Input string]) --> B[Finite control]\\nB <--> C[(Stack memory)]\\nB --> D{Input consumed and acceptance condition met?}\\nD -->|Yes| E([Accept])\\nD -->|No| F([Reject])",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "V",
+              "title": "Turing Machine",
+              "topics": [
+                "Construction techniques",
+                "Universal Turing machine",
+                "Multi-tape, multi-head and multidimensional Turing machines",
+                "NP-complete problems",
+                "Decidability and recursively enumerable languages",
+                "Halting problem",
+                "Post correspondence problem"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "Define Turing Machine.",
+                  "answer": "A Turing Machine is an abstract model of computation consisting of a finite control, an infinite tape and a read/write head. It reads and writes symbols and moves its head left or right according to transition rules.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 5,
+                  "question": "Differentiate decidable and undecidable problems.",
+                  "answer": "A decidable problem has an algorithm/Turing machine that halts on every input and gives the correct yes/no answer. An undecidable problem has no algorithm that correctly decides every possible input and always halts.",
+                  "type": "practice"
+                },
+                {
+                  "marks": 10,
+                  "question": "Explain the Halting Problem and why it is undecidable.",
+                  "answer": "The Halting Problem asks whether a given program or Turing Machine eventually stops on a particular input. It is undecidable: assuming a universal algorithm could always answer this question leads to a self-contradiction by constructing a program that does the opposite of the prediction about itself.",
+                  "diagram": "flowchart TD\\nA([Program + input]) --> B[Hypothetical halting decider]\\nB --> C{Will it halt?}\\nC -->|Yes| D[Construct loop forever]\\nC -->|No| E[Construct halt immediately]\\nD --> F[Contradiction]\\nE --> F",
+                  "type": "practice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "AL602",
+          "name": "Computer Networks",
+          "category": "Core",
+          "syllabus_status": "Scheme-confirmed subject; detailed unit syllabus must be imported from the matching official AL602 syllabus document before publishing unit-wise content.",
+          "units": []
+        },
+        {
+          "code": "AL603",
+          "name": "Departmental Elective",
+          "category": "Elective",
+          "options": [
+            "AL603(A) Image and Video Processing",
+            "AL603(B) Data and Visual Analytics",
+            "AL603(C) Pattern Recognition"
+          ],
+          "units": [
+            {
+              "unit": "I",
+              "title": "Data and Visual Analytics — Data Definitions and Analysis Techniques",
+              "topics": [
+                "Elements, variables and data categorization",
+                "Levels of measurement",
+                "Data management and indexing",
+                "Sampling distributions and resampling",
+                "Statistical inference and descriptive statistics",
+                "Measures of central tendency, location and dispersion"
+              ],
+              "important_questions": [
+                {
+                  "marks": 2,
+                  "question": "What is data wrangling?",
+                  "answer": "Data wrangling is the process of collecting, cleaning, structuring and transforming raw data into a useful format for analysis.",
+                  "type": "practice"
+                }
+              ]
+            },
+            {
+              "unit": "II",
+              "title": "Advanced Data Analysis Techniques",
+              "topics": [
+                "Hypothesis generation and testing",
+                "Chi-square test",
+                "t-test",
+                "ANOVA",
+                "Correlation analysis",
+                "Maximum likelihood",
+                "Regression modelling",
+                "Multivariate and Bayesian analysis"
+              ],
+              "important_questions": []
+            },
+            {
+              "unit": "III",
+              "title": "Data Wrangling and Visualization",
+              "topics": [
+                "Gathering, assessing and cleaning data",
+                "Design of visualizations",
+                "Univariate, bivariate and multivariate exploration",
+                "Explanatory visualizations"
+              ],
+              "important_questions": []
+            },
+            {
+              "unit": "IV",
+              "title": "Data Ecosystem",
+              "topics": [
+                "Data analyst ecosystem",
+                "Data types and file formats",
+                "Data sources and repositories",
+                "NoSQL, data marts and data lakes",
+                "ETL and data pipelines",
+                "Big Data, Hadoop, HDFS, Hive and Spark"
+              ],
+              "important_questions": []
+            },
+            {
+              "unit": "V",
+              "title": "Data Visualization Tools",
+              "topics": [
+                "Matplotlib, pandas, seaborn, ggplot and Plotly",
+                "Power BI",
+                "Visualization project creation"
+              ],
+              "important_questions": []
+            }
+          ]
+        },
+        {
+          "code": "AL604",
+          "name": "Open Elective",
+          "category": "Elective",
+          "options": [
+            "AL604(A) Cloud Computing",
+            "AL604(B) Information Security & Management",
+            "AL604(C) Intelligent Systems for Robotics"
+          ],
+          "units": []
+        }
+      ]
+    }
+  ],
+  "pyq_policy": {
+    "label": "Authentic previous-year papers",
+    "rule": "Never label generated questions as PYQs. Add a paper only after its original PDF is obtained and its branch, semester, subject code, session and year are verified.",
+    "archive_url": "https://rgpvquestionpapers.in/all-papers"
+  },
+  "question_label": "Practice question (AI Study Buddy study aid; not claimed as an actual past paper)"
+}
