@@ -259,3 +259,39 @@ def admin_students(user=Depends(current_user)):
             ORDER BY u.created_at DESC
         """).fetchall()
     return [dict(r) for r in rows]
+
+# RGPV academic content catalogue (seeded, version-controlled JSON)
+CATALOG_FILE = BASE / "data" / "academic_catalog.json"
+
+@app.get("/api/academic/catalog")
+def academic_catalog():
+    import json
+    if not CATALOG_FILE.exists():
+        raise HTTPException(503, "Academic catalogue is not installed.")
+    try:
+        return json.loads(CATALOG_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        raise HTTPException(500, "Academic catalogue could not be loaded.")
+
+@app.get("/api/academic/subjects")
+def academic_subjects(branch: str = "AIML", semester: int = 6):
+    import json
+    catalog = academic_catalog()
+    for item in catalog.get("semesters", []):
+        if item.get("branch", "").lower() == branch.lower() and item.get("semester") == semester:
+            return {"branch": branch, "semester": semester, "scheme_note": item.get("scheme_note", ""), "subjects": item.get("subjects", [])}
+    return {"branch": branch, "semester": semester, "scheme_note": "Content is being verified and added.", "subjects": []}
+
+@app.get("/api/academic/search")
+def academic_search(q: str = "", branch: str = "AIML", semester: int = 6):
+    query = q.strip().lower()
+    result = academic_subjects(branch, semester)
+    matches = []
+    for subject in result["subjects"]:
+        for unit in subject.get("units", []):
+            for question in unit.get("important_questions", []):
+                haystack = " ".join([subject.get("name", ""), unit.get("title", ""), question.get("question", ""), question.get("answer", "")]).lower()
+                if not query or query in haystack:
+                    matches.append({"subject_code": subject.get("code"), "subject": subject.get("name"), "unit": unit.get("unit"), "unit_title": unit.get("title"), **question})
+    return {"count": len(matches), "questions": matches[:100], "label": catalog.get("question_label", "Practice questions")}
+
