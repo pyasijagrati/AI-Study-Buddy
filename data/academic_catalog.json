@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0",
-  "coverage_note": "Branch/semester selectors cover the listed streams. Detailed content is published only for populated units; subject-only entries are explicitly marked pending. Confirm each student's admission batch and scheme revision before relying on codes/electives.",
+  "coverage_note": "Branch list is a broad B.Tech directory. Official RGPV links are authoritative for scheme/syllabus. Third-party portals are indexes for notes/PYQs; check subject code, scheme and exam session. Not every branch-semester-subject has been individually verified in this app yet.",
   "branches": [
     {
       "code": "CSE",
@@ -141,6 +141,174 @@
         7,
         8
       ]
+    },
+    {
+      "code": "CY",
+      "name": "Cyber Security",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "EX",
+      "name": "Electrical & Electronics Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "AUTO",
+      "name": "Automobile Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "CHEMICAL",
+      "name": "Chemical Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "MINING",
+      "name": "Mining Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "FT",
+      "name": "Food Technology",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "TX",
+      "name": "Textile Technology",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "CSE-DS",
+      "name": "Computer Science & Engineering (Data Science)",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "CSE-IOT",
+      "name": "Computer Science & Engineering (Internet of Things)",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "CSIT",
+      "name": "Computer Science & Information Technology",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "EEE",
+      "name": "Electrical & Electronics Engineering",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "code": "ROBO",
+      "name": "Robotics & Automation",
+      "semesters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
     }
   ],
   "sources": [
@@ -238,6 +406,36 @@
       "type": "study_material",
       "title": "RGPV unit-wise short notes across branches and semesters (CampusPrep)",
       "url": "https://campusprep.in/rgpv-notes/"
+    },
+    {
+      "type": "official_directory",
+      "title": "Official RGPV Scheme & Syllabus directory — branch-wise university listings",
+      "url": "https://www.rgpv.ac.in/Departments/UITSS.aspx"
+    },
+    {
+      "type": "study_material",
+      "title": "All RGPV B.Tech branches & Semesters 1–8 — syllabus, notes, important questions and subject pages (CampusPrep)",
+      "url": "https://campusprep.in/"
+    },
+    {
+      "type": "paper_archive",
+      "title": "RGPV B.Tech subject-wise paper archive (Paperwala)",
+      "url": "https://paperwala.org/rgpv/btech/"
+    },
+    {
+      "type": "paper_archive",
+      "title": "RGPV B.Tech branch-wise PYQ index (Quescol)",
+      "url": "https://quescol.com/papers/rgpv/btech/"
+    },
+    {
+      "type": "paper_archive",
+      "title": "RGPV B.Tech branch and semester question-paper index (RGPVOnline; non-official)",
+      "url": "https://www.rgpvonline.com/"
+    },
+    {
+      "type": "paper_archive",
+      "title": "RGPV official university website — student and examination resources",
+      "url": "https://www.rgpv.ac.in/"
     }
   ],
   "semesters": [
