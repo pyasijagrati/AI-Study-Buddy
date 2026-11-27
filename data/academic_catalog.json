@@ -198,6 +198,31 @@
       "type": "official_syllabus",
       "title": "RGPV CSBS VI Semester syllabus (CB-601 Computer Networks)",
       "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN%2FPubContent%2FScheme%2FCSBS_RGPV_6_sem_Syllabus230123124433.pdf"
+    },
+    {
+      "type": "official_syllabus",
+      "title": "RGPV B.Tech CSE VI Semester Syllabus (official PDF)",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN/PubContent/Scheme/CSE-6_Sem_Syallbus311219032311.pdf"
+    },
+    {
+      "type": "paper_archive",
+      "title": "CampusPrep RGPV PYQ, notes and subject-wise study library (third-party)",
+      "url": "https://campusprep.in/rgpv-question-papers/"
+    },
+    {
+      "type": "paper_archive",
+      "title": "RGPV Question Papers by subject and exam session (third-party PDF archive)",
+      "url": "https://rgpvquestionpapers.in/find-papers"
+    },
+    {
+      "type": "paper_archive",
+      "title": "RGPV AIML previous-year papers index (third-party)",
+      "url": "https://www.rgpvonline.com/btech-aiml-question-papers.html"
+    },
+    {
+      "type": "study_material",
+      "title": "CampusPrep AIML Semester 6 — subject-wise syllabus, notes, important questions and PYQ links (some content may require free account)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/"
     }
   ],
   "semesters": [
@@ -1042,6 +1067,42 @@
       "label": "Browse paper archive",
       "url": "https://paperwala.org/rgpv/btech/cse-aiml/al-602-computer-networks",
       "source_type": "third_party_archive"
+    },
+    {
+      "branch": "CSE",
+      "semester": 6,
+      "subject_code": "CS601",
+      "subject": "Machine Learning",
+      "label": "Official RGPV syllabus PDF — includes five units",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN/PubContent/Scheme/CSE-6_Sem_Syallbus311219032311.pdf",
+      "source_type": "official_pdf"
+    },
+    {
+      "branch": "CSE",
+      "semester": 6,
+      "subject_code": "CS602",
+      "subject": "Computer Networks",
+      "label": "Official RGPV syllabus PDF — includes five units",
+      "url": "https://www.rgpv.ac.in/UC/frm_download_file.aspx?Filepath=CDN/PubContent/Scheme/CSE-6_Sem_Syallbus311219032311.pdf",
+      "source_type": "official_pdf"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL601",
+      "subject": "Theory of Computation",
+      "label": "AIML Semester 6 subject-wise notes, important questions and PYQ links (third-party)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/",
+      "source_type": "third_party_study"
+    },
+    {
+      "branch": "AIML",
+      "semester": 6,
+      "subject_code": "AL602",
+      "subject": "Computer Networks",
+      "label": "AIML Semester 6 subject-wise notes, important questions and PYQ links (third-party)",
+      "url": "https://campusprep.in/rgpv/aiml/sem-6/",
+      "source_type": "third_party_study"
     }
   ]
 }
